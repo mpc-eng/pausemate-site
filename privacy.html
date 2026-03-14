@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — PauseMate</title>
+<meta name="description" content="PauseMate's privacy policy. Your data stays on your device. We don't track you. We don't sell your information.">
+<meta name="theme-color" content="#00D9A5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #00D9A5;
+  --green-dark: #00B380;
+  --green-teal: #00BFB8;
+  --amber: #FFB74D;
+  --violet: #7C8DFF;
+  --bg: #000000;
+  --bg-card: #1C1C1E;
+  --bg-secondary: #2C2C2E;
+  --text: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #636366;
+  --card-border: rgba(255,255,255,0.06);
+  --card-border-top: rgba(255,255,255,0.1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --max-w: 720px;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--green-dark); }
+
+/* ─── Navigation ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  color: var(--text);
+}
+.nav-logo img {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a {
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+
+/* ─── Page ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.page-header {
+  padding: 140px 0 48px;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+.page-header .subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.page-header .updated {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 16px;
+}
+
+/* ─── Principles ─── */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 56px;
+}
+.principle {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.principle::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-border-top), transparent);
+}
+.principle-icon {
+  width: 44px; height: 44px;
+  margin: 0 auto 12px;
+  background: rgba(0,217,165,0.08);
+  border: 1px solid rgba(0,217,165,0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.principle-icon svg {
+  width: 22px; height: 22px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.principle h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.principle p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── TOC ─── */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.toc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--card-border-top), transparent);
+}
+.toc h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { font-size: 14px; color: var(--text-secondary); line-height: 2; }
+.toc li a { color: var(--text-secondary); text-decoration: none; }
+.toc li a:hover { color: var(--green); }
+
+/* ─── Policy Content ─── */
+.policy-content { padding-bottom: 100px; }
+.policy-content h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+.policy-content h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.policy-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.policy-content ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.policy-content li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.policy-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.policy-content .callout {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  border-left: 3px solid var(--green);
+}
+
+/* ─── Footer ─── */
+footer {
+  border-top: 1px solid var(--card-border);
+  padding: 40px 0;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text);
+}
+.footer-logo img {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+}
+.footer-copy { font-size: 13px; color: var(--text-tertiary); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 768px) {
+  .principles { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-left { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="app-icon.png" alt="PauseMate" width="36" height="36">
+      PauseMate
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Header ─── -->
+<section class="page-header">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">
+      We built PauseMate to help you pay attention to your life, not to pay attention to yours.
+      Here's exactly how we handle your data.
+    </p>
+    <p class="updated">Last updated: 14 March 2026</p>
+  </div>
+</section>
+
+<!-- ─── Three Principles ─── -->
+<div class="container">
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      </div>
+      <h3>On your device</h3>
+      <p>Your data lives on your iPhone. We have no servers, no databases, no cloud.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Minimal collection</h3>
+      <p>We collect only what Apple requires. Nothing more. No analytics, no tracking.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>You're the customer</h3>
+      <p>You pay for the product. We don't sell data. We don't serve ads. Ever.</p>
+    </div>
+  </div>
+
+  <!-- ─── Table of Contents ─── -->
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#data-we-collect">Data We Collect</a></li>
+      <li><a href="#data-we-dont">Data We Don't Collect</a></li>
+      <li><a href="#on-device-storage">On-Device Storage</a></li>
+      <li><a href="#screen-time">Screen Time & FamilyControls</a></li>
+      <li><a href="#subscriptions">Subscriptions & Payments</a></li>
+      <li><a href="#third-party">Third-Party Services</a></li>
+      <li><a href="#children">Children's Privacy</a></li>
+      <li><a href="#your-rights">Your Rights</a></li>
+      <li><a href="#data-deletion">Data Deletion</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ─── Policy Content ─── -->
+<div class="container">
+  <div class="policy-content">
+
+    <h2 id="overview">1. Overview</h2>
+    <p>
+      PauseMate ("the App", "we", "us") is a mindfulness-based screen time awareness app for iOS. This Privacy Policy explains what data we collect, how we use it, and your rights regarding that data.
+    </p>
+    <p>
+      The short version: <strong>we collect almost nothing</strong>. PauseMate is designed to work entirely on your device. We don't operate servers, we don't maintain user accounts, and we don't transmit your personal data anywhere.
+    </p>
+
+    <h2 id="data-we-collect">2. Data We Collect</h2>
+    <p>PauseMate collects the following data, all of which is stored locally on your device:</p>
+    <ul>
+      <li><strong>App selections:</strong> The apps you choose to set pauses for. These selections are stored using Apple's FamilyControls framework and remain on your device.</li>
+      <li><strong>Nudge history:</strong> Records of when nudges were triggered, which type was presented (breathing, reflection, delay), and whether you completed or bypassed them.</li>
+      <li><strong>Reflection responses:</strong> If you use the reflection nudge, your written responses are stored locally. We never see them.</li>
+      <li><strong>Focus session data:</strong> Start times, durations, and completion status of scheduled focus sessions.</li>
+      <li><strong>Streak data:</strong> Consecutive days of nudge completion, used to display your mindfulness streak.</li>
+      <li><strong>Settings and preferences:</strong> Your chosen nudge types, notification preferences, and app configuration.</li>
+    </ul>
+
+    <div class="callout">
+      None of this data ever leaves your device. There is no server to send it to. If you delete the app, all of this data is permanently erased.
+    </div>
+
+    <h2 id="data-we-dont">3. Data We Don't Collect</h2>
+    <p>We want to be explicit about what we <em>don't</em> do:</p>
+    <ul>
+      <li>We <strong>do not</strong> collect your name, email address, or any personal identifiers</li>
+      <li>We <strong>do not</strong> use analytics SDKs (no Mixpanel, no Firebase Analytics, no Amplitude)</li>
+      <li>We <strong>do not</strong> use advertising identifiers (IDFA) or device fingerprinting</li>
+      <li>We <strong>do not</strong> track which specific apps you open or how long you use them (Apple's FamilyControls framework uses opaque tokens — we cannot see app names)</li>
+      <li>We <strong>do not</strong> share, sell, or transfer any data to third parties</li>
+      <li>We <strong>do not</strong> use cookies or web tracking technologies</li>
+      <li>We <strong>do not</strong> build user profiles or behavioural models</li>
+    </ul>
+
+    <h2 id="on-device-storage">4. On-Device Storage</h2>
+    <p>
+      All app data is stored using Apple's standard on-device persistence mechanisms:
+    </p>
+    <ul>
+      <li><strong>UserDefaults</strong> for settings and preferences</li>
+      <li><strong>App Group containers</strong> for sharing state between the main app and shield extensions</li>
+      <li><strong>Local storage</strong> for nudge history and reflection responses</li>
+    </ul>
+    <p>
+      Data is protected by iOS device encryption and your device passcode. We do not implement additional cloud backup of this data. If you enable iCloud device backup through iOS settings, your PauseMate data may be included in your device backup — this is controlled by Apple and your iCloud settings, not by us.
+    </p>
+
+    <h2 id="screen-time">5. Screen Time & FamilyControls</h2>
+    <p>
+      PauseMate uses Apple's <strong>FamilyControls</strong> and <strong>ManagedSettings</strong> frameworks to create pauses before app launches. These frameworks are designed with privacy in mind:
+    </p>
+    <ul>
+      <li>Apps are represented as opaque tokens — PauseMate cannot determine which specific apps you're opening</li>
+      <li>The shield (pause screen) is rendered by an iOS system extension, not by our app code</li>
+      <li>Screen Time authorisation is managed entirely by Apple's APIs</li>
+      <li>We request only the minimum permissions required: the ability to present a shield when a managed app is opened</li>
+    </ul>
+
+    <h2 id="subscriptions">6. Subscriptions & Payments</h2>
+    <p>
+      If you choose to subscribe to PauseMate Premium, payment is processed entirely by Apple through the App Store. We receive:
+    </p>
+    <ul>
+      <li>A confirmation that you have an active subscription (via StoreKit 2)</li>
+      <li>The subscription tier (monthly or annual)</li>
+      <li>The expiration date of your current subscription period</li>
+    </ul>
+    <p>
+      We <strong>do not</strong> receive your payment method, billing address, Apple ID, or any other financial information. All payment processing is handled by Apple. Please refer to <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> for details on how they handle payment data.
+    </p>
+
+    <h2 id="third-party">7. Third-Party Services</h2>
+    <p>
+      PauseMate uses the following third-party services:
+    </p>
+    <ul>
+      <li><strong>Apple StoreKit 2:</strong> For subscription management and in-app purchases. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</li>
+      <li><strong>RevenueCat:</strong> For subscription infrastructure and receipt validation. RevenueCat processes anonymous subscriber identifiers — they do not receive your name, email, or Apple ID. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a>.</li>
+    </ul>
+    <p>
+      We do not use any other third-party services, SDKs, or frameworks that collect or transmit user data.
+    </p>
+
+    <h2 id="children">8. Children's Privacy</h2>
+    <p>
+      PauseMate is not directed at children under the age of 13. We do not knowingly collect personal information from children. Since PauseMate does not collect personal information from any user, this concern is largely moot — but we want to be clear about our intent.
+    </p>
+    <p>
+      If you are a parent or guardian and believe your child has provided personal information through our app, please <a href="mailto:privacy@pausemate.app">contact us</a> and we will take steps to address the situation.
+    </p>
+
+    <h2 id="your-rights">9. Your Rights</h2>
+    <p>
+      Regardless of where you live, we believe you have the right to:
+    </p>
+    <ul>
+      <li><strong>Access:</strong> Know what data we store about you (answer: only what's on your device)</li>
+      <li><strong>Deletion:</strong> Delete all your data at any time (see Data Deletion below)</li>
+      <li><strong>Portability:</strong> Export your data (not currently available, but on our roadmap)</li>
+      <li><strong>Correction:</strong> Modify your stored data through the app's interface</li>
+    </ul>
+    <p>
+      Since we don't collect personal data on our servers, most data protection regulations (GDPR, CCPA, etc.) have limited applicability. However, we designed PauseMate to exceed the requirements of these regulations — the best way to protect your data is to never collect it in the first place.
+    </p>
+
+    <div class="callout">
+      <strong>For EU/EEA users (GDPR):</strong> PauseMate operates with a "privacy by design" approach. We process no personal data on our servers. All data processing occurs locally on your device under your control. We do not have a data processor or data controller relationship with you because we never receive your data.
+    </div>
+
+    <div class="callout">
+      <strong>For California users (CCPA):</strong> We do not sell personal information. We do not share personal information for targeted advertising. We do not collect personal information beyond what is described in this policy. You may contact us at <a href="mailto:privacy@pausemate.app">privacy@pausemate.app</a> for any CCPA-related enquiries.
+    </div>
+
+    <h2 id="data-deletion">10. Data Deletion</h2>
+    <p>
+      You can delete all PauseMate data at any time through two methods:
+    </p>
+    <ul>
+      <li><strong>In-app:</strong> Settings &rarr; Delete All Data. This permanently removes all nudge history, reflections, focus sessions, streaks, and preferences.</li>
+      <li><strong>Uninstall:</strong> Removing PauseMate from your device deletes all associated data, including App Group containers and UserDefaults.</li>
+    </ul>
+    <p>
+      Since we don't store your data on any server, deletion is immediate and permanent. There is no backup to clear, no account to close, and no retention period to wait through.
+    </p>
+
+    <h2 id="changes">11. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. If we make material changes, we will notify you through the app before the changes take effect. The "Last updated" date at the top of this page indicates the most recent revision.
+    </p>
+    <p>
+      Our commitment to privacy is foundational to PauseMate's design. Any future changes will maintain or strengthen these protections, never weaken them.
+    </p>
+
+    <h2 id="contact">12. Contact Us</h2>
+    <p>
+      If you have questions about this Privacy Policy or PauseMate's privacy practices, please reach out:
+    </p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:privacy@pausemate.app">privacy@pausemate.app</a></li>
+      <li><strong>General enquiries:</strong> <a href="mailto:hello@pausemate.app">hello@pausemate.app</a></li>
+    </ul>
+    <p>
+      We read and respond to every message. We're a small team and we take privacy seriously — it's not just a policy, it's the reason we built PauseMate the way we did.
+    </p>
+
+  </div>
+</div>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html" class="footer-logo">
+        <img src="app-icon.png" alt="PauseMate" width="28" height="28">
+        PauseMate
+      </a>
+      <span class="footer-copy">&copy; 2026 PauseMate</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="mailto:hello@pausemate.app">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
