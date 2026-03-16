@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — PauseMate</title>
+<meta name="description" content="PauseMate's Terms of Service. Simple, fair terms for a simple, fair app.">
+<meta name="theme-color" content="#00D9A5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --green: #00D9A5;
+  --green-dark: #00B380;
+  --green-teal: #00BFB8;
+  --amber: #FFB74D;
+  --violet: #7C8DFF;
+  --bg: #000000;
+  --bg-card: #1C1C1E;
+  --bg-secondary: #2C2C2E;
+  --text: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --text-tertiary: #636366;
+  --card-border: rgba(255,255,255,0.06);
+  --card-border-top: rgba(255,255,255,0.1);
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --max-w: 720px;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--green-dark); }
+
+/* ─── Navigation ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  color: var(--text);
+}
+.nav-logo img {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a {
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+
+/* ─── Page ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.page-header {
+  padding: 140px 0 48px;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+.page-header .subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.page-header .updated {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 16px;
+}
+
+/* ─── TOC ─── */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.toc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--card-border-top), transparent);
+}
+.toc h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { font-size: 14px; color: var(--text-secondary); line-height: 2; }
+.toc li a { color: var(--text-secondary); text-decoration: none; }
+.toc li a:hover { color: var(--green); }
+
+/* ─── Policy Content ─── */
+.policy-content { padding-bottom: 100px; }
+.policy-content h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+.policy-content h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.policy-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.policy-content ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.policy-content li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.policy-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.policy-content .callout {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  border-left: 3px solid var(--green);
+}
+
+/* ─── Footer ─── */
+footer {
+  border-top: 1px solid var(--card-border);
+  padding: 40px 0;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text);
+}
+.footer-logo img {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+}
+.footer-copy { font-size: 13px; color: var(--text-tertiary); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 768px) {
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-left { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="app-icon.png" alt="PauseMate" width="36" height="36">
+      PauseMate
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Header ─── -->
+<section class="page-header">
+  <div class="container">
+    <h1>Terms of Service</h1>
+    <p class="subtitle">
+      Simple, fair terms for a simple, fair app. Please read these terms before using PauseMate.
+    </p>
+    <p class="updated">Last updated: 15 March 2026</p>
+  </div>
+</section>
+
+<!-- ─── Table of Contents ─── -->
+<div class="container">
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#acceptance">Acceptance of Terms</a></li>
+      <li><a href="#description">Description of Service</a></li>
+      <li><a href="#eligibility">Eligibility</a></li>
+      <li><a href="#your-use">Your Use of PauseMate</a></li>
+      <li><a href="#subscriptions">Subscriptions & Payments</a></li>
+      <li><a href="#intellectual-property">Intellectual Property</a></li>
+      <li><a href="#disclaimers">Disclaimers</a></li>
+      <li><a href="#limitation">Limitation of Liability</a></li>
+      <li><a href="#termination">Termination</a></li>
+      <li><a href="#changes">Changes to These Terms</a></li>
+      <li><a href="#governing-law">Governing Law</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ─── Terms Content ─── -->
+<div class="container">
+  <div class="policy-content">
+
+    <h2 id="acceptance">1. Acceptance of Terms</h2>
+    <p>
+      By downloading, installing, or using PauseMate ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.
+    </p>
+    <p>
+      These Terms constitute a legal agreement between you and PauseMate ("we", "us", "our"). They govern your use of the App and any related services.
+    </p>
+
+    <h2 id="description">2. Description of Service</h2>
+    <p>
+      PauseMate is a mindfulness-based screen time awareness app for iOS. It creates gentle pauses before you open apps you find distracting, using Apple's FamilyControls and ManagedSettings frameworks. The App is designed to promote intentional device usage through breathing exercises, reflection prompts, and timed delays.
+    </p>
+    <p>
+      PauseMate does <strong>not</strong> block apps. It creates a brief moment of awareness before apps open. You are always in control and can choose to proceed at any time.
+    </p>
+
+    <h2 id="eligibility">3. Eligibility</h2>
+    <p>
+      You must be at least 13 years of age to use PauseMate. If you are under 18, you must have permission from a parent or legal guardian to use the App.
+    </p>
+    <p>
+      PauseMate requires iOS 17.4 or later. You are responsible for ensuring your device meets the minimum system requirements.
+    </p>
+
+    <h2 id="your-use">4. Your Use of PauseMate</h2>
+    <p>You agree to use PauseMate only for its intended purpose. You agree not to:</p>
+    <ul>
+      <li>Reverse-engineer, decompile, or disassemble the App</li>
+      <li>Attempt to circumvent any security features or technical limitations</li>
+      <li>Use the App in any way that violates applicable laws or regulations</li>
+      <li>Redistribute, sublicense, or sell the App or any part of it</li>
+      <li>Use the App to restrict another person's device usage without their knowledge or consent</li>
+    </ul>
+
+    <div class="callout">
+      PauseMate uses Apple's Screen Time permissions to function. You grant these permissions voluntarily and can revoke them at any time through iOS Settings. PauseMate cannot access your Screen Time data or see which specific apps you use.
+    </div>
+
+    <h2 id="subscriptions">5. Subscriptions & Payments</h2>
+    <p>
+      PauseMate offers both free and premium features. Premium features require an active subscription.
+    </p>
+    <ul>
+      <li><strong>Free tier:</strong> Core nudge functionality, app selection, and basic statistics are available without a subscription.</li>
+      <li><strong>Premium tier:</strong> Advanced features including Focus Sessions, Attention Audit, Mindfulness Streaks, and Intent Capture require an active subscription.</li>
+      <li><strong>Pricing:</strong> Subscription pricing is displayed in the App and on the App Store before purchase. Prices may vary by region and are subject to change.</li>
+      <li><strong>Billing:</strong> All payments are processed by Apple through the App Store. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</li>
+      <li><strong>Cancellation:</strong> You can cancel your subscription at any time through your Apple ID settings. Cancellation takes effect at the end of the current billing period. No refunds are provided for partial billing periods.</li>
+      <li><strong>Refunds:</strong> Refund requests are handled by Apple. You can request a refund through <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</li>
+    </ul>
+    <p>
+      We reserve the right to change subscription pricing. Any price changes will take effect at the start of your next billing period, and we will notify you in advance through the App.
+    </p>
+
+    <h2 id="intellectual-property">6. Intellectual Property</h2>
+    <p>
+      PauseMate, including its design, code, content, name, logo, and all associated intellectual property, is owned by us and protected by copyright and other intellectual property laws.
+    </p>
+    <p>
+      You are granted a limited, non-exclusive, non-transferable, revocable licence to use the App for personal, non-commercial purposes, subject to these Terms. This licence does not transfer any ownership rights to you.
+    </p>
+
+    <h2 id="disclaimers">7. Disclaimers</h2>
+    <p>
+      PauseMate is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.
+    </p>
+    <p>We do not warrant that:</p>
+    <ul>
+      <li>The App will be uninterrupted, error-free, or free of harmful components</li>
+      <li>The App will meet your specific requirements or expectations</li>
+      <li>The App will be compatible with future versions of iOS or Apple's frameworks</li>
+      <li>Using the App will result in any particular outcome regarding your screen time habits or wellbeing</li>
+    </ul>
+
+    <div class="callout">
+      PauseMate is a mindfulness tool, not a medical device or therapeutic service. It is not intended to diagnose, treat, or prevent any medical or psychological condition. If you have concerns about screen time addiction or mental health, please consult a qualified healthcare professional.
+    </div>
+
+    <h2 id="limitation">8. Limitation of Liability</h2>
+    <p>
+      To the maximum extent permitted by applicable law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+    </p>
+    <ul>
+      <li>Your use of or inability to use the App</li>
+      <li>Any changes to the App or any temporary or permanent cessation of the service</li>
+      <li>Any unauthorised access to or alteration of your data</li>
+      <li>Any other matter relating to the App</li>
+    </ul>
+    <p>
+      Our total liability for any claims arising from or related to these Terms or your use of the App shall not exceed the amount you paid for the App in the 12 months preceding the claim.
+    </p>
+
+    <h2 id="termination">9. Termination</h2>
+    <p>
+      You may stop using PauseMate at any time by deleting the App from your device. All locally stored data will be permanently removed when you uninstall the App.
+    </p>
+    <p>
+      We reserve the right to suspend or terminate your access to the App if you violate these Terms. In the event of termination, the provisions regarding Intellectual Property, Disclaimers, Limitation of Liability, and Governing Law shall survive.
+    </p>
+
+    <h2 id="changes">10. Changes to These Terms</h2>
+    <p>
+      We may update these Terms from time to time. If we make material changes, we will notify you through the App before the changes take effect. Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.
+    </p>
+    <p>
+      The "Last updated" date at the top of this page indicates the most recent revision.
+    </p>
+
+    <h2 id="governing-law">11. Governing Law</h2>
+    <p>
+      These Terms shall be governed by and construed in accordance with the laws of England and Wales, without regard to conflict of law principles. Any disputes arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the courts of England and Wales.
+    </p>
+    <p>
+      If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.
+    </p>
+
+    <h2 id="contact">12. Contact Us</h2>
+    <p>
+      If you have questions about these Terms of Service, please reach out:
+    </p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:hello@pausemate.app">hello@pausemate.app</a></li>
+      <li><strong>Privacy enquiries:</strong> <a href="mailto:privacy@pausemate.app">privacy@pausemate.app</a></li>
+    </ul>
+    <p>
+      You can also review our <a href="privacy.html">Privacy Policy</a> for details on how we handle your data.
+    </p>
+
+  </div>
+</div>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html" class="footer-logo">
+        <img src="app-icon.png" alt="PauseMate" width="28" height="28">
+        PauseMate
+      </a>
+      <span class="footer-copy">&copy; 2026 PauseMate</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:hello@pausemate.app">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
