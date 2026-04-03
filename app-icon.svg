@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 120 120">
+  <!-- PauseMate Mk2 App Icon — B1 Soft Iris -->
+  <!-- Warm Parchment background -->
+  <rect width="120" height="120" rx="26.5" fill="#F5F0EB"/>
+  <!-- Overlapping translucent petals forming natural iris aperture -->
+  <circle cx="60" cy="38" r="22" fill="#2B2520" opacity="0.08"/>
+  <circle cx="41" cy="56" r="22" fill="#2B2520" opacity="0.08"/>
+  <circle cx="79" cy="56" r="22" fill="#2B2520" opacity="0.08"/>
+  <circle cx="48" cy="76" r="22" fill="#2B2520" opacity="0.08"/>
+  <circle cx="72" cy="76" r="22" fill="#2B2520" opacity="0.08"/>
+  <!-- Centre opening — parchment clearing -->
+  <circle cx="60" cy="58" r="12" fill="#F5F0EB"/>
+  <!-- Terracotta core -->
+  <circle cx="60" cy="58" r="9" fill="#C27B5A"/>
+</svg>
