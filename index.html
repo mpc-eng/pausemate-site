@@ -5,34 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PauseMate — Take back your attention</title>
 <meta name="description" content="PauseMate creates a gentle pause before your most distracting apps open. No blocking. No judgement. Just a moment to notice.">
-<meta name="theme-color" content="#00D9A5">
+<meta name="theme-color" content="#C27B5A">
 <meta property="og:title" content="PauseMate — Take back your attention">
 <meta property="og:description" content="A gentle pause before your most distracting apps. No blocking. No judgement. Just a moment to notice.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Exact app colors from DesignSystem.swift */
-  --green: #00D9A5;
-  --green-dark: #00B380;
-  --green-teal: #00BFB8;
-  --amber: #FFB74D;
-  --violet: #7C8DFF;
-  --bg: #000000;
-  --bg-card: #1C1C1E;
-  --bg-secondary: #2C2C2E;
-  --text: #FFFFFF;
-  --text-secondary: #8E8E93;
-  --text-tertiary: #636366;
-  --green-glow: rgba(0,217,165,0.15);
-  --green-glow-strong: rgba(0,217,165,0.25);
-  --card-border: rgba(255,255,255,0.06);
-  --card-border-top: rgba(255,255,255,0.1);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Rounded', system-ui, sans-serif;
+  /* Mk2 "Warm Structure" palette — from DESIGN_BRIEF_MK2.md */
+  --bg: #F5F0EB;              /* Warm Parchment */
+  --bg-surface: #EDE8E1;      /* Soft Linen */
+  --bg-card: #FFFFFF;
+  --text: #2B2520;             /* Warm Charcoal */
+  --text-secondary: #6B5F55;
+  --text-tertiary: #8A7D73;
+  --accent: #9B5636;           /* Dusty Terracotta */
+  --accent-light: #C27B5A;
+  --sage: #4B6F44;             /* Sage Green */
+  --sage-light: #8BA888;
+  --rose: #D2AEB1;             /* Dusty Rose */
+  --amber: #876020;            /* Warm Amber */
+  --amber-light: #D4A857;
+  --success: #4A7040;          /* Muted Olive */
+  --destructive: #A8403F;
+  --accent-glow: rgba(155,86,54,0.08);
+  --accent-glow-strong: rgba(155,86,54,0.15);
+  --sage-glow: rgba(75,111,68,0.08);
+  --card-border: rgba(43,37,32,0.08);
+  --card-shadow: rgba(43,37,32,0.06);
+  --font-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-body: 'General Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --max-w: 1080px;
   --radius: 16px;
   --radius-sm: 12px;
@@ -40,7 +46,7 @@
 
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font);
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -62,7 +68,7 @@ a { color: inherit; text-decoration: none; }
 /* ─── Navigation ─── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(0,0,0,0.75);
+  background: rgba(245,240,235,0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--card-border);
@@ -80,9 +86,11 @@ nav {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.3px;
+  color: var(--text);
 }
 .nav-logo img {
   width: 36px; height: 36px;
@@ -101,16 +109,16 @@ nav {
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
 }
-.nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+.nav-links a:hover { color: var(--text); background: rgba(43,37,32,0.05); }
 .nav-cta {
   padding: 8px 20px !important;
-  background: var(--green) !important;
-  color: #000 !important;
+  background: var(--accent) !important;
+  color: #fff !important;
   border-radius: 10px !important;
   font-weight: 700 !important;
   transition: background 0.2s, transform 0.15s !important;
 }
-.nav-cta:hover { background: var(--green-dark) !important; transform: scale(1.02); }
+.nav-cta:hover { background: var(--accent-light) !important; transform: scale(1.02); }
 
 /* ─── Hero ─── */
 .hero {
@@ -127,7 +135,7 @@ nav {
   transform: translateX(-50%);
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, var(--green-glow) 0%, transparent 65%);
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero .container { position: relative; z-index: 1; }
@@ -138,15 +146,15 @@ nav {
   padding: 6px 16px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--green);
-  background: rgba(0,217,165,0.08);
-  border: 1px solid rgba(0,217,165,0.2);
+  color: var(--accent);
+  background: var(--accent-glow);
+  border: 1px solid rgba(155,86,54,0.2);
   border-radius: 999px;
   margin-bottom: 32px;
 }
 .hero-badge .dot {
   width: 6px; height: 6px;
-  background: var(--green);
+  background: var(--accent);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -155,17 +163,19 @@ nav {
   50% { opacity: 0.3; }
 }
 .hero h1 {
+  font-family: var(--font-display);
   font-size: clamp(44px, 7vw, 76px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -2px;
   margin-bottom: 24px;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text);
 }
-.hero h1 .green {
-  color: var(--green);
+.hero h1 .accent {
+  color: var(--accent);
 }
 .hero-sub {
   font-size: 19px;
@@ -175,6 +185,7 @@ nav {
   line-height: 1.7;
 }
 .hero-tagline {
+  font-family: var(--font-display);
   font-size: 15px;
   color: var(--text-tertiary);
   font-style: italic;
@@ -198,30 +209,30 @@ nav {
   border: none;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
-  font-family: var(--font);
+  font-family: var(--font-body);
   text-decoration: none;
 }
 .btn:active { transform: scale(0.96); }
 .btn-primary {
-  background: linear-gradient(135deg, var(--green), var(--green-teal));
-  color: #000;
+  background: var(--accent);
+  color: #fff;
 }
-.btn-primary:hover { box-shadow: 0 4px 24px var(--green-glow-strong); transform: scale(1.02); }
+.btn-primary:hover { box-shadow: 0 4px 24px var(--accent-glow-strong); transform: scale(1.02); }
 .btn-secondary {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   color: var(--text);
-  border: 1px solid rgba(0,217,165,0.2);
+  border: 1px solid var(--card-border);
 }
-.btn-secondary:hover { border-color: rgba(0,217,165,0.4); }
+.btn-secondary:hover { border-color: rgba(43,37,32,0.15); }
 
 /* ─── Phone Mockup ─── */
 .phone-mockup {
   max-width: 300px;
   margin: 0 auto;
-  background: var(--bg-secondary);
+  background: var(--bg-surface);
   border-radius: 40px;
   padding: 12px;
-  box-shadow: 0 32px 80px rgba(0,217,165,0.08), 0 0 0 1px var(--card-border);
+  box-shadow: 0 32px 80px var(--card-shadow), 0 0 0 1px var(--card-border);
   position: relative;
 }
 .phone-screen {
@@ -243,47 +254,61 @@ nav {
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 100px; height: 28px;
-  background: var(--bg-secondary);
+  background: var(--bg-surface);
   border-radius: 0 0 16px 16px;
 }
 
-/* Breathing Orb — matches BreathingMascotView.swift */
-.breathing-orb {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(0,217,165,0.8), rgba(0,217,165,0.6), rgba(0,179,128,0.5));
-  margin-bottom: 28px;
-  animation: breathe 3s ease-in-out infinite;
-  box-shadow: 0 0 50px rgba(0,217,165,0.3), 0 0 100px rgba(0,217,165,0.1);
+/* Breathing Orb — Mk2: Terracotta core + Sage glow */
+.breathing-orb-wrap {
   position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-/* Leaf texture overlay — matches AbstractLeafShape at 8% opacity */
+.breathing-orb-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,168,136,0.25) 0%, rgba(139,168,136,0.08) 50%, transparent 70%);
+  animation: breathe-glow 4s ease-in-out infinite;
+}
+@keyframes breathe-glow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 0.3; }
+}
+.breathing-orb {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C8785A, #9B5636);
+  animation: breathe 4s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(155,86,54,0.2), 0 0 80px rgba(75,111,68,0.1);
+  position: relative;
+  z-index: 1;
+}
 .breathing-orb::before {
   content: '';
   position: absolute;
   inset: 10%;
   border-radius: 50% 50% 50% 30%;
-  background: rgba(255,255,255,0.06);
+  background: rgba(139,168,136,0.1);
   transform: rotate(-12deg);
-}
-.breathing-orb::after {
-  content: '';
-  position: absolute;
-  inset: 20%;
-  border-radius: 30% 50% 50% 50%;
-  background: rgba(255,255,255,0.04);
-  transform: rotate(15deg);
 }
 @keyframes breathe {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  50% { transform: scale(1.12); }
 }
 .phone-screen .shield-title {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 6px;
   letter-spacing: -0.3px;
+  color: var(--text);
 }
 .phone-screen .shield-subtitle {
   font-size: 14px;
@@ -293,13 +318,13 @@ nav {
 .phone-btn-primary {
   width: 100%;
   padding: 14px;
-  background: var(--green);
-  color: #000;
+  background: var(--accent);
+  color: #fff;
   border: none;
   border-radius: var(--radius-sm);
   font-size: 16px;
   font-weight: 700;
-  font-family: var(--font);
+  font-family: var(--font-body);
   margin-bottom: 10px;
 }
 .phone-btn-secondary {
@@ -310,7 +335,7 @@ nav {
   border: none;
   font-size: 14px;
   font-weight: 500;
-  font-family: var(--font);
+  font-family: var(--font-body);
 }
 
 /* ─── Section Styles ─── */
@@ -320,15 +345,17 @@ section { padding: 100px 0; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--green);
+  color: var(--accent);
   margin-bottom: 14px;
 }
 .section-title {
+  font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1.5px;
   line-height: 1.1;
   margin-bottom: 16px;
+  color: var(--text);
 }
 .section-desc {
   font-size: 17px;
@@ -353,32 +380,27 @@ section { padding: 100px 0; }
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, box-shadow 0.3s;
-}
-.step-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--card-border-top), transparent);
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 .step-card:hover {
-  border-color: rgba(255,255,255,0.1);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  border-color: rgba(43,37,32,0.12);
+  box-shadow: 0 4px 16px rgba(43,37,32,0.08);
 }
 .step-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px; height: 36px;
-  background: rgba(0,217,165,0.1);
-  color: var(--green);
+  background: var(--accent-glow);
+  color: var(--accent);
   border-radius: 10px;
   font-size: 15px;
   font-weight: 800;
   margin-bottom: 20px;
-  border: 1px solid rgba(0,217,165,0.2);
+  border: 1px solid rgba(155,86,54,0.15);
 }
 .step-card h3 {
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
@@ -393,7 +415,7 @@ section { padding: 100px 0; }
 /* ─── Features ─── */
 .features-section {
   padding: 100px 0;
-  background: linear-gradient(180deg, rgba(0,217,165,0.03) 0%, transparent 100%);
+  background: linear-gradient(180deg, var(--sage-glow) 0%, transparent 100%);
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
 }
@@ -412,42 +434,33 @@ section { padding: 100px 0; }
   align-items: flex-start;
   gap: 16px;
   transition: border-color 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, var(--card-border-top), transparent);
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 .feature-card:hover {
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(43,37,32,0.12);
   transform: translateY(-2px);
 }
 .feature-icon {
   flex-shrink: 0;
   width: 44px; height: 44px;
-  background: rgba(0,217,165,0.08);
-  border: 1px solid rgba(0,217,165,0.15);
+  background: var(--accent-glow);
+  border: 1px solid rgba(155,86,54,0.12);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  color: var(--green);
 }
-/* SF Symbol-style icons via SVG */
 .feature-icon svg {
   width: 22px; height: 22px;
-  stroke: var(--green);
+  stroke: var(--accent);
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 .feature-card h3 {
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 4px;
@@ -460,9 +473,7 @@ section { padding: 100px 0; }
 }
 
 /* ─── App Icon Showcase ─── */
-.showcase-section {
-  padding: 100px 0;
-}
+.showcase-section { padding: 100px 0; }
 .showcase-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -475,25 +486,24 @@ section { padding: 100px 0; }
   align-items: center;
   justify-content: center;
 }
-.showcase-icon-wrap {
-  position: relative;
-}
+.showcase-icon-wrap { position: relative; }
 .showcase-icon-wrap img {
   width: 200px; height: 200px;
   border-radius: 44px;
-  box-shadow: 0 24px 64px rgba(0,217,165,0.15), 0 0 0 1px var(--card-border);
+  box-shadow: 0 24px 64px var(--accent-glow-strong), 0 0 0 1px var(--card-border);
 }
 .showcase-icon-wrap::before {
   content: '';
   position: absolute;
   inset: -24px;
   border-radius: 60px;
-  background: radial-gradient(circle, rgba(0,217,165,0.08), transparent 70%);
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
   z-index: -1;
 }
 .showcase-text h3 {
+  font-family: var(--font-display);
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: 16px;
   line-height: 1.15;
@@ -519,8 +529,8 @@ section { padding: 100px 0; }
 }
 .value-check {
   width: 24px; height: 24px;
-  background: rgba(0,217,165,0.1);
-  border: 1px solid rgba(0,217,165,0.25);
+  background: var(--sage-glow);
+  border: 1px solid rgba(75,111,68,0.2);
   border-radius: 7px;
   display: flex;
   align-items: center;
@@ -529,7 +539,7 @@ section { padding: 100px 0; }
 }
 .value-check svg {
   width: 14px; height: 14px;
-  stroke: var(--green);
+  stroke: var(--sage);
   fill: none;
   stroke-width: 2.5;
   stroke-linecap: round;
@@ -550,18 +560,10 @@ section { padding: 100px 0; }
   border-radius: var(--radius);
   padding: 32px 24px;
   text-align: center;
-  position: relative;
-  overflow: hidden;
   transition: border-color 0.3s;
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
-.nudge-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--card-border-top), transparent);
-}
-.nudge-card:hover { border-color: rgba(255,255,255,0.1); }
+.nudge-card:hover { border-color: rgba(43,37,32,0.12); }
 .nudge-icon {
   width: 64px; height: 64px;
   margin: 0 auto 20px;
@@ -572,18 +574,19 @@ section { padding: 100px 0; }
   font-size: 28px;
 }
 .nudge-icon.breathe {
-  background: rgba(0,217,165,0.1);
-  border: 1px solid rgba(0,217,165,0.2);
+  background: var(--sage-glow);
+  border: 1px solid rgba(75,111,68,0.15);
 }
 .nudge-icon.reflect {
-  background: rgba(124,141,255,0.1);
-  border: 1px solid rgba(124,141,255,0.2);
+  background: rgba(210,174,177,0.12);
+  border: 1px solid rgba(210,174,177,0.25);
 }
 .nudge-icon.delay {
-  background: rgba(255,183,77,0.1);
-  border: 1px solid rgba(255,183,77,0.2);
+  background: rgba(135,96,32,0.08);
+  border: 1px solid rgba(135,96,32,0.15);
 }
 .nudge-card h3 {
+  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 700;
   margin-bottom: 8px;
@@ -602,14 +605,14 @@ section { padding: 100px 0; }
   border-radius: 20px;
   margin-top: 16px;
 }
-.nudge-badge.green { background: rgba(0,217,165,0.15); color: var(--green); border: 1px solid rgba(0,217,165,0.25); }
-.nudge-badge.violet { background: rgba(124,141,255,0.15); color: var(--violet); border: 1px solid rgba(124,141,255,0.25); }
-.nudge-badge.amber { background: rgba(255,183,77,0.15); color: var(--amber); border: 1px solid rgba(255,183,77,0.25); }
+.nudge-badge.green { background: var(--sage-glow); color: var(--sage); border: 1px solid rgba(75,111,68,0.2); }
+.nudge-badge.violet { background: rgba(210,174,177,0.12); color: #8A5A5D; border: 1px solid rgba(210,174,177,0.3); }
+.nudge-badge.amber { background: rgba(135,96,32,0.08); color: var(--amber); border: 1px solid rgba(135,96,32,0.2); }
 
 /* ─── Privacy ─── */
 .privacy-section {
   padding: 80px 0;
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border-top: 1px solid var(--card-border);
   border-bottom: 1px solid var(--card-border);
 }
@@ -620,17 +623,18 @@ section { padding: 100px 0; }
   margin-top: 40px;
 }
 .privacy-card {
-  background: var(--bg);
+  background: var(--bg-card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 28px 24px;
   text-align: center;
+  box-shadow: 0 2px 8px var(--card-shadow);
 }
 .privacy-icon {
   width: 48px; height: 48px;
   margin: 0 auto 16px;
-  background: rgba(0,217,165,0.08);
-  border: 1px solid rgba(0,217,165,0.15);
+  background: var(--sage-glow);
+  border: 1px solid rgba(75,111,68,0.12);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -638,13 +642,14 @@ section { padding: 100px 0; }
 }
 .privacy-icon svg {
   width: 24px; height: 24px;
-  stroke: var(--green);
+  stroke: var(--sage);
   fill: none;
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 .privacy-card h3 {
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
@@ -670,15 +675,15 @@ section { padding: 100px 0; }
   padding: 20px 0;
   background: none;
   border: none;
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
   cursor: pointer;
   text-align: left;
-  font-family: var(--font);
   letter-spacing: -0.2px;
 }
-.faq-question:hover { color: var(--green); }
+.faq-question:hover { color: var(--accent); }
 .faq-chevron {
   flex-shrink: 0;
   width: 20px; height: 20px;
@@ -710,7 +715,7 @@ section { padding: 100px 0; }
   bottom: 0; left: 50%;
   transform: translateX(-50%);
   width: 600px; height: 400px;
-  background: radial-gradient(ellipse, var(--green-glow) 0%, transparent 70%);
+  background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
   pointer-events: none;
 }
 .cta-section .container { position: relative; z-index: 1; }
@@ -739,6 +744,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
 }
@@ -800,7 +806,7 @@ footer {
       <span class="dot"></span>
       Coming Soon to iOS
     </div>
-    <h1 class="reveal">Take back your <span class="green">attention</span></h1>
+    <h1 class="reveal">Take back your <span class="accent">attention</span></h1>
     <p class="hero-sub reveal">
       PauseMate creates a gentle pause before your most distracting apps open.
       A moment to breathe, reflect, and choose intentionally.
@@ -814,10 +820,13 @@ footer {
       <a href="#how" class="btn btn-secondary">See How It Works</a>
     </div>
 
-    <!-- Phone Mockup — matches ShieldConfigurationDataSource -->
+    <!-- Phone Mockup — Mk2 Warm Structure -->
     <div class="phone-mockup reveal">
       <div class="phone-screen">
-        <div class="breathing-orb"></div>
+        <div class="breathing-orb-wrap">
+          <div class="breathing-orb-glow"></div>
+          <div class="breathing-orb"></div>
+        </div>
         <div class="shield-title">Pause and reflect</div>
         <div class="shield-subtitle">Take a moment — or choose to continue.</div>
         <button class="phone-btn-primary">Continue</button>
@@ -841,7 +850,7 @@ footer {
     <div class="nudge-grid">
       <div class="nudge-card reveal">
         <div class="nudge-icon breathe">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D9A5" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c-4.97 0-9-2.69-9-6v0c0-3.31 4.03-6 9-6s9 2.69 9 6v0c0 3.31-4.03 6-9 6z"/><path d="M12 10V2"/><path d="M8 6l4-4 4 4"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4B6F44" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c-4.97 0-9-2.69-9-6v0c0-3.31 4.03-6 9-6s9 2.69 9 6v0c0 3.31-4.03 6-9 6z"/><path d="M12 10V2"/><path d="M8 6l4-4 4 4"/></svg>
         </div>
         <h3>Breathe</h3>
         <p>A guided breathing exercise with visual and haptic feedback. Complete a cycle and the impulse often passes on its own.</p>
@@ -849,7 +858,7 @@ footer {
       </div>
       <div class="nudge-card reveal">
         <div class="nudge-icon reflect">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7C8DFF" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A5A5D" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
         <h3>Reflect</h3>
         <p>A short question that asks why you're reaching for this app right now. Build self-awareness without self-judgement.</p>
@@ -857,7 +866,7 @@ footer {
       </div>
       <div class="nudge-card reveal">
         <div class="nudge-icon delay">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFB74D" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#876020" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3>Wait</h3>
         <p>A simple timed delay. 15 to 45 seconds of stillness. Enough time for the autopilot to release and your intention to surface.</p>
@@ -973,7 +982,7 @@ footer {
     <div class="showcase-grid reveal">
       <div class="showcase-visual">
         <div class="showcase-icon-wrap">
-          <img src="app-icon.png" alt="PauseMate app icon — a friendly green face with pause-button eyes and a smile" width="200" height="200">
+          <img src="app-icon.png" alt="PauseMate app icon" width="200" height="200">
         </div>
       </div>
       <div class="showcase-text">
@@ -1044,7 +1053,7 @@ footer {
       </div>
     </div>
     <div style="margin-top: 32px; text-align: center;" class="reveal">
-      <a href="privacy.html" style="font-size: 14px; color: var(--green); font-weight: 600;">Read our full Privacy Policy &rarr;</a>
+      <a href="privacy.html" style="font-size: 14px; color: var(--accent); font-weight: 600;">Read our full Privacy Policy &rarr;</a>
     </div>
   </div>
 </section>
