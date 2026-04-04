@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — PauseMate</title>
+<meta name="description" content="Get help with PauseMate. Troubleshooting, FAQs, and contact information for the mindful app blocker.">
+<meta name="theme-color" content="#C27B5A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #F5F0EB;
+  --bg-surface: #EDE8E1;
+  --bg-card: #FFFFFF;
+  --text: #2B2520;
+  --text-secondary: #6B5F55;
+  --text-tertiary: #8A7D73;
+  --accent: #9B5636;
+  --accent-light: #C27B5A;
+  --sage: #4B6F44;
+  --card-border: rgba(43,37,32,0.08);
+  --font-display: 'Literata', Georgia, serif;
+  --font-body: 'General Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --max-w: 720px;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--accent-light); }
+
+/* ─── Navigation ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(245,240,235,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  color: var(--text);
+}
+.nav-logo img {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a {
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+  text-decoration: none;
+}
+.nav-links a:hover { color: var(--text); background: rgba(43,37,32,0.05); }
+
+/* ─── Page ─── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.page-header {
+  padding: 140px 0 48px;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 12px;
+}
+.page-header .subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ─── Contact Card ─── */
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin-bottom: 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+.contact-card h2 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.contact-card p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.contact-email {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--accent);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+.contact-email:hover { background: var(--accent-light); color: #FFFFFF; }
+
+/* ─── TOC ─── */
+.toc {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.toc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--card-border-top), transparent);
+}
+.toc h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-tertiary);
+  margin-bottom: 12px;
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { font-size: 14px; color: var(--text-secondary); line-height: 2; }
+.toc li a { color: var(--text-secondary); text-decoration: none; }
+.toc li a:hover { color: var(--accent); }
+
+/* ─── Content ─── */
+.support-content { padding-bottom: 100px; }
+.support-content h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+.support-content h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.support-content p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.support-content ol,
+.support-content ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.support-content li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.support-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.support-content .callout {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  border-left: 3px solid var(--accent);
+}
+.support-content .callout-sage {
+  border-left-color: var(--sage);
+}
+
+/* ─── Footer ─── */
+footer {
+  border-top: 1px solid var(--card-border);
+  padding: 40px 0;
+}
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text);
+}
+.footer-logo img {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+}
+.footer-copy { font-size: 13px; color: var(--text-tertiary); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--text); }
+
+@media (max-width: 768px) {
+  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-left { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Navigation ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="app-icon.svg" alt="PauseMate" width="36" height="36">
+      PauseMate
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── Header ─── -->
+<section class="page-header">
+  <div class="container">
+    <h1>Support</h1>
+    <p class="subtitle">
+      Need help with PauseMate? We're a small team and we read every message.
+      Most issues can be resolved with the troubleshooting steps below.
+    </p>
+  </div>
+</section>
+
+<!-- ─── Contact Card ─── -->
+<div class="container">
+  <div class="contact-card">
+    <h2>Get in touch</h2>
+    <p>Can't find your answer below? Email us and we'll get back to you within 24 hours.</p>
+    <a href="mailto:hello@pausemate.app" class="contact-email">hello@pausemate.app</a>
+  </div>
+
+  <!-- ─── Table of Contents ─── -->
+  <div class="toc">
+    <h3>Common Topics</h3>
+    <ol>
+      <li><a href="#screen-time">Screen Time permission not working</a></li>
+      <li><a href="#apps-not-showing">Apps not showing during setup</a></li>
+      <li><a href="#nudges-not-appearing">Nudges not appearing</a></li>
+      <li><a href="#focus-sessions">Focus Sessions not blocking apps</a></li>
+      <li><a href="#subscription">Subscription &amp; billing</a></li>
+      <li><a href="#delete-data">Deleting your data</a></li>
+      <li><a href="#battery">Battery usage</a></li>
+      <li><a href="#privacy">Privacy &amp; data</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ─── Support Content ─── -->
+<div class="container">
+  <div class="support-content">
+
+    <h2 id="screen-time">1. Screen Time permission not working</h2>
+    <p>
+      PauseMate requires Screen Time (FamilyControls) permission to display pauses before you open selected apps. If the permission prompt didn't appear, or you denied it:
+    </p>
+    <ol>
+      <li>Open <strong>Settings</strong> on your iPhone</li>
+      <li>Tap <strong>Screen Time</strong></li>
+      <li>Make sure Screen Time is turned <strong>on</strong></li>
+      <li>Go back to PauseMate and re-open the app &mdash; the permission prompt should appear again</li>
+    </ol>
+    <div class="callout">
+      If you previously denied the permission, you may need to go to <strong>Settings &rarr; General &rarr; PauseMate</strong> and re-enable Screen Time access, or uninstall and reinstall the app.
+    </div>
+
+    <h2 id="apps-not-showing">2. Apps not showing during setup</h2>
+    <p>
+      If the app picker is empty when you try to select apps to pause, Screen Time permission hasn't been granted yet. PauseMate needs this permission <em>before</em> it can see your installed apps.
+    </p>
+    <ol>
+      <li>Go back to the permissions step in onboarding</li>
+      <li>Grant Screen Time access when prompted</li>
+      <li>Return to the app selection step &mdash; your apps will appear</li>
+    </ol>
+    <p>
+      If you skipped onboarding, go to <strong>Settings</strong> within PauseMate and tap <strong>Manage Paused Apps</strong> to add apps after granting permission.
+    </p>
+
+    <h2 id="nudges-not-appearing">3. Nudges not appearing</h2>
+    <p>
+      If you open a paused app and don't see a breathing exercise or reflection prompt:
+    </p>
+    <ul>
+      <li>Check that the app is in your paused list (Settings &rarr; Manage Paused Apps)</li>
+      <li>Make sure you haven't already unlocked the app with a recent intent-based unlock (the timer may still be active)</li>
+      <li>Restart your iPhone &mdash; this refreshes the shield extension that displays nudges</li>
+    </ul>
+    <div class="callout">
+      PauseMate's nudges are powered by an iOS system extension. After an iOS update or if your phone has been off for a while, a restart ensures the extension is running.
+    </div>
+
+    <h2 id="focus-sessions">4. Focus Sessions not blocking apps</h2>
+    <p>
+      Focus Sessions use hardware-enforced blocking via Apple's FamilyControls. If apps aren't being blocked during a session:
+    </p>
+    <ul>
+      <li>Confirm the session is active (you'll see a countdown on the Home tab)</li>
+      <li>Check that the apps you want blocked are selected for the session</li>
+      <li>Ensure Screen Time permission is still granted (Settings &rarr; Screen Time)</li>
+      <li>If you recently updated iOS, restart your device</li>
+    </ul>
+
+    <h2 id="subscription">5. Subscription &amp; billing</h2>
+    <p>
+      PauseMate Premium is billed through Apple. We don't handle payments directly.
+    </p>
+    <ul>
+      <li><strong>Manage your subscription:</strong> Settings &rarr; Apple ID &rarr; Subscriptions &rarr; PauseMate</li>
+      <li><strong>Cancel:</strong> Use the same path above. You'll keep Premium until the end of your billing period</li>
+      <li><strong>Restore purchases:</strong> Open PauseMate &rarr; Settings &rarr; Restore Purchases</li>
+      <li><strong>Refund:</strong> Request a refund through <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a></li>
+    </ul>
+    <div class="callout callout-sage">
+      Free features (unlimited shield rules, escalating friction, quick focus sessions, streaks, weekly audit, intent-based unlock) are free forever. No trial, no expiry.
+    </div>
+
+    <h2 id="delete-data">6. Deleting your data</h2>
+    <p>
+      All your data is stored on your device. You can delete everything in two ways:
+    </p>
+    <ul>
+      <li><strong>In-app:</strong> Settings &rarr; Delete All Data. This permanently removes all history, reflections, streaks, and preferences</li>
+      <li><strong>Uninstall:</strong> Removing PauseMate from your device deletes all associated data</li>
+    </ul>
+    <p>
+      We don't store any of your data on servers, so there's nothing else to clear. Deletion is immediate and permanent.
+    </p>
+
+    <h2 id="battery">7. Battery usage</h2>
+    <p>
+      PauseMate uses minimal battery. The shield extension runs only when you open a paused app &mdash; it doesn't run in the background. Focus Sessions use Apple's system-level blocking, which is highly efficient.
+    </p>
+    <p>
+      If you notice unusual battery drain, check <strong>Settings &rarr; Battery</strong> on your iPhone. PauseMate should typically show less than 1% usage. If it's higher, please <a href="mailto:hello@pausemate.app">let us know</a> with a screenshot so we can investigate.
+    </p>
+
+    <h2 id="privacy">8. Privacy &amp; data</h2>
+    <p>
+      PauseMate is built on a simple principle: your data stays on your device. We have no servers, no analytics, no tracking. For full details, read our <a href="privacy.html">Privacy Policy</a>.
+    </p>
+    <ul>
+      <li>No account required</li>
+      <li>No data leaves your device</li>
+      <li>App selections use opaque tokens &mdash; we can't see which apps you chose</li>
+      <li>Reflection responses are stored locally and never transmitted</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="index.html" class="footer-logo">
+        <img src="app-icon.svg" alt="PauseMate" width="28" height="28">
+        PauseMate
+      </a>
+      <span class="footer-copy">&copy; 2026 PauseMate</span>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
