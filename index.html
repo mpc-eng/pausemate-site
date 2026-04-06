@@ -1330,21 +1330,26 @@ document.querySelectorAll('.reveal').forEach((el) => {
     btn.textContent = 'Sending\u2026';
 
     try {
-      var fd = new FormData();
-      fd.append('email', email);
-      fd.append('embed', '1');
-      fd.append('tag', 'launch-notify');
-
-      const res = await fetch('https://buttondown.com/api/emails/embed-subscribe/pausemate', {
+      const res = await fetch('https://api.buttondown.email/v1/subscribers', {
         method: 'POST',
-        body: fd
+        headers: {
+          'Authorization': 'Token 600572c5-6546-4e9f-9221-5baccafb2a74',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email_address: email,
+          type: 'regular',
+          tags: ['launch-notify'],
+          referrer_url: window.location.href
+        })
       });
 
-      if (res.ok || res.status === 201 || res.redirected) {
+      if (res.ok || res.status === 201) {
         form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re on the list.</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
       } else {
-        const text = (await res.text()).toLowerCase();
-        if (text.includes('already') || res.status === 409) {
+        const data = await res.json().catch(() => ({}));
+        const detail = JSON.stringify(data).toLowerCase();
+        if (res.status === 409 || detail.includes('already')) {
           form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re already on the list!</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
         } else {
           msg.textContent = 'Something went wrong. Please try again.';
