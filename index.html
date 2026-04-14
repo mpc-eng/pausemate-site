@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PauseMate — Take back your attention</title>
-<meta name="description" content="PauseMate creates a gentle pause before your most distracting apps open. No blocking. No judgement. Just a moment to notice.">
+<meta name="description" content="PauseMate creates a gentle pause before your most distracting apps open. Research shows a friction-based pause reduces app visits by up to 47%.">
 <meta name="theme-color" content="#C27B5A">
 <meta property="og:title" content="PauseMate — Take back your attention">
-<meta property="og:description" content="A gentle pause before your most distracting apps. No blocking. No judgement. Just a moment to notice.">
+<meta property="og:description" content="PauseMate creates a gentle pause before your most distracting apps open. Research shows a friction-based pause reduces app visits by up to 47%.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,21 +16,20 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Mk2 "Warm Structure" palette — from DESIGN_BRIEF_MK2.md */
-  --bg: #F5F0EB;              /* Warm Parchment */
-  --bg-surface: #EDE8E1;      /* Soft Linen */
+  --bg: #F5F0EB;
+  --bg-surface: #EDE8E1;
   --bg-card: #FFFFFF;
-  --text: #2B2520;             /* Warm Charcoal */
+  --text: #2B2520;
   --text-secondary: #6B5F55;
   --text-tertiary: #8A7D73;
-  --accent: #9B5636;           /* Dusty Terracotta */
+  --accent: #9B5636;
   --accent-light: #C27B5A;
-  --sage: #4B6F44;             /* Sage Green */
+  --sage: #4B6F44;
   --sage-light: #8BA888;
-  --rose: #D2AEB1;             /* Dusty Rose */
-  --amber: #876020;            /* Warm Amber */
+  --rose: #D2AEB1;
+  --amber: #876020;
   --amber-light: #D4A857;
-  --success: #4A7040;          /* Muted Olive */
+  --success: #4A7040;
   --destructive: #A8403F;
   --accent-glow: rgba(155,86,54,0.08);
   --accent-glow-strong: rgba(155,86,54,0.15);
@@ -54,7 +53,6 @@ body {
   overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
-
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
 /* ─── Scroll Animations ─── */
@@ -92,15 +90,8 @@ nav {
   letter-spacing: -0.3px;
   color: var(--text);
 }
-.nav-logo img {
-  width: 36px; height: 36px;
-  border-radius: 9px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
+.nav-logo img { width: 36px; height: 36px; border-radius: 9px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {
   padding: 7px 14px;
   font-size: 14px;
@@ -120,6 +111,40 @@ nav {
 }
 .nav-cta:hover { background: var(--accent-light) !important; transform: scale(1.02); }
 
+/* Mobile hamburger */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--text);
+}
+.nav-hamburger svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 64px; left: 0; right: 0;
+  background: rgba(245,240,235,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 16px 24px;
+  z-index: 99;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.mobile-menu a:hover { background: rgba(43,37,32,0.05); color: var(--text); }
+
 /* ─── Hero ─── */
 .hero {
   padding: 160px 0 100px;
@@ -130,38 +155,13 @@ nav {
 .hero::before {
   content: '';
   position: absolute;
-  top: 40px;
-  left: 50%;
+  top: 40px; left: 50%;
   transform: translateX(-50%);
-  width: 700px;
-  height: 700px;
+  width: 700px; height: 700px;
   background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
   pointer-events: none;
 }
 .hero .container { position: relative; z-index: 1; }
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--accent-glow);
-  border: 1px solid rgba(155,86,54,0.2);
-  border-radius: 999px;
-  margin-bottom: 32px;
-}
-.hero-badge .dot {
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(44px, 7vw, 76px);
@@ -174,29 +174,34 @@ nav {
   margin-right: auto;
   color: var(--text);
 }
-.hero h1 .accent {
-  color: var(--accent);
-}
+.hero h1 .accent { color: var(--accent); }
 .hero-sub {
   font-size: 19px;
   color: var(--text-secondary);
-  max-width: 500px;
-  margin: 0 auto 12px;
+  max-width: 540px;
+  margin: 0 auto 24px;
   line-height: 1.7;
 }
-.hero-tagline {
-  font-family: var(--font-display);
-  font-size: 15px;
-  color: var(--text-tertiary);
-  font-style: italic;
+.hero-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sage);
+  background: var(--sage-glow);
+  border: 1px solid rgba(75,111,68,0.2);
+  border-radius: 999px;
   margin-bottom: 40px;
 }
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 0;
+.hero-stat svg {
+  width: 16px; height: 16px;
+  stroke: var(--sage);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .btn {
   display: inline-flex;
@@ -213,16 +218,9 @@ nav {
   text-decoration: none;
 }
 .btn:active { transform: scale(0.96); }
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
+.btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { box-shadow: 0 4px 24px var(--accent-glow-strong); transform: scale(1.02); }
-.btn-secondary {
-  background: var(--bg-surface);
-  color: var(--text);
-  border: 1px solid var(--card-border);
-}
+.btn-secondary { background: var(--bg-surface); color: var(--text); border: 1px solid var(--card-border); }
 .btn-secondary:hover { border-color: rgba(43,37,32,0.15); }
 
 /* ─── Phone Mockup ─── */
@@ -257,12 +255,9 @@ nav {
   background: var(--bg-surface);
   border-radius: 0 0 16px 16px;
 }
-
-/* Breathing Orb — Mk2: Terracotta core + Sage glow */
 .breathing-orb-wrap {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 140px; height: 140px;
   margin-bottom: 28px;
   display: flex;
   align-items: center;
@@ -270,8 +265,7 @@ nav {
 }
 .breathing-orb-glow {
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 140px; height: 140px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(139,168,136,0.25) 0%, rgba(139,168,136,0.08) 50%, transparent 70%);
   animation: breathe-glow 4s ease-in-out infinite;
@@ -281,8 +275,7 @@ nav {
   50% { transform: scale(1.25); opacity: 0.3; }
 }
 .breathing-orb {
-  width: 100px;
-  height: 100px;
+  width: 100px; height: 100px;
   border-radius: 50%;
   background: linear-gradient(135deg, #C8785A, #9B5636);
   animation: breathe 4s ease-in-out infinite;
@@ -302,114 +295,178 @@ nav {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.12); }
 }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
 .phone-screen .shield-title {
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.3px;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 6px; letter-spacing: -0.3px;
   color: var(--text);
 }
 .phone-screen .shield-subtitle {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
+  font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;
 }
 .phone-btn-primary {
-  width: 100%;
-  padding: 14px;
-  background: var(--accent);
-  color: #fff;
-  border: none;
+  width: 100%; padding: 14px;
+  background: var(--accent); color: #fff; border: none;
   border-radius: var(--radius-sm);
-  font-size: 16px;
-  font-weight: 700;
-  font-family: var(--font-body);
+  font-size: 16px; font-weight: 700; font-family: var(--font-body);
   margin-bottom: 10px;
 }
 .phone-btn-secondary {
-  width: 100%;
-  padding: 12px;
-  background: transparent;
-  color: var(--text-secondary);
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: var(--font-body);
+  width: 100%; padding: 12px;
+  background: transparent; color: var(--text-secondary); border: none;
+  font-size: 14px; font-weight: 500; font-family: var(--font-body);
 }
 
 /* ─── Section Styles ─── */
 section { padding: 100px 0; }
 .section-label {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--accent);
-  margin-bottom: 14px;
+  font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  color: var(--accent); margin-bottom: 14px;
 }
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 700;
-  letter-spacing: -1.5px;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  font-weight: 700; letter-spacing: -1.5px;
+  line-height: 1.1; margin-bottom: 16px;
   color: var(--text);
 }
 .section-desc {
-  font-size: 17px;
-  color: var(--text-secondary);
-  max-width: 520px;
-  line-height: 1.7;
+  font-size: 17px; color: var(--text-secondary);
+  max-width: 520px; line-height: 1.7;
 }
 .section-desc.centered { margin: 0 auto; text-align: center; }
 
-/* ─── How It Works ─── */
-.steps-grid {
+/* ─── Science Section ─── */
+.science-section {
+  padding: 100px 0;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+.science-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+.science-card {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+}
+.science-number {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 700;
+  letter-spacing: -2px; line-height: 1;
+  margin-bottom: 12px; color: var(--accent);
+}
+.science-card h3 {
+  font-family: var(--font-display);
+  font-size: 19px; font-weight: 700;
+  margin-bottom: 10px; letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+.science-card p {
+  font-size: 15px; color: var(--text-secondary);
+  line-height: 1.65; flex: 1;
+}
+.science-source {
+  font-size: 12px; color: var(--text-tertiary);
+  margin-top: 16px; padding-top: 12px;
+  border-top: 1px solid var(--card-border);
+  font-style: italic;
+}
+.science-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+.science-footer a {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.science-footer a:hover { text-decoration: underline; }
+
+/* ─── Willpower Callout ─── */
+.willpower-callout {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 56px 0;
+}
+.willpower-callout blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.willpower-callout cite {
+  font-size: 13px; color: var(--text-tertiary);
+  font-style: normal; font-weight: 500;
+  display: block;
+}
+
+/* ─── How It Works (merged) ─── */
+.how-section { padding: 100px 0; }
+.how-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 56px;
+  margin-top: 48px;
 }
-.step-card {
+.how-card {
   background: var(--bg-card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: 32px 24px;
-  position: relative;
-  overflow: hidden;
   transition: border-color 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 8px var(--card-shadow);
 }
-.step-card:hover {
+.how-card:hover {
   border-color: rgba(43,37,32,0.12);
   box-shadow: 0 4px 16px rgba(43,37,32,0.08);
 }
-.step-num {
+.how-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 36px; height: 36px;
-  background: var(--accent-glow);
-  color: var(--accent);
   border-radius: 10px;
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 15px; font-weight: 800;
   margin-bottom: 20px;
-  border: 1px solid rgba(155,86,54,0.15);
 }
-.step-card h3 {
+.how-num.step-breathe { background: var(--sage-glow); color: var(--sage); border: 1px solid rgba(75,111,68,0.15); }
+.how-num.step-reflect { background: rgba(210,174,177,0.12); color: #8A5A5D; border: 1px solid rgba(210,174,177,0.25); }
+.how-num.step-wait { background: rgba(135,96,32,0.08); color: var(--amber); border: 1px solid rgba(135,96,32,0.15); }
+.how-card h3 {
   font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: -0.3px;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 10px; letter-spacing: -0.3px;
 }
-.step-card p {
+.how-card p {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+}
+.how-card .nudge-science {
+  font-size: 12px; color: var(--text-tertiary);
+  margin-top: 14px; font-style: italic; line-height: 1.5;
+}
+.how-escalation {
+  text-align: center;
+  margin-top: 32px;
   font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
+  color: var(--text-tertiary);
 }
 
 /* ─── Features ─── */
@@ -449,172 +506,99 @@ section { padding: 100px 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
 }
 .feature-icon svg {
   width: 22px; height: 22px;
-  stroke: var(--accent);
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke: var(--accent); fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
 .feature-card h3 {
   font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  letter-spacing: -0.2px;
+  font-size: 17px; font-weight: 700;
+  margin-bottom: 4px; letter-spacing: -0.2px;
 }
 .feature-card p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.65;
+  font-size: 13px; color: var(--text-secondary); line-height: 1.65;
 }
 
-/* ─── App Icon Showcase ─── */
-.showcase-section { padding: 100px 0; }
-.showcase-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+/* ─── Social Proof ─── */
+.proof-section { padding: 80px 0; }
+.proof-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.proof-counter {
+  display: inline-flex;
   align-items: center;
-  margin-top: 48px;
-}
-.showcase-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.showcase-icon-wrap { position: relative; }
-.showcase-icon-wrap img {
-  width: 200px; height: 200px;
-  border-radius: 44px;
-  box-shadow: 0 24px 64px var(--accent-glow-strong), 0 0 0 1px var(--card-border);
-}
-.showcase-icon-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -24px;
-  border-radius: 60px;
-  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-  z-index: -1;
-}
-.showcase-text h3 {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
-  line-height: 1.15;
-}
-.showcase-text p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-.value-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 24px;
-}
-.value-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 15px;
-  font-weight: 500;
-}
-.value-check {
-  width: 24px; height: 24px;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 13px; font-weight: 600;
+  color: var(--sage);
   background: var(--sage-glow);
   border: 1px solid rgba(75,111,68,0.2);
-  border-radius: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  border-radius: 999px;
+  margin-bottom: 16px;
 }
-.value-check svg {
-  width: 14px; height: 14px;
-  stroke: var(--sage);
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.proof-counter .dot {
+  width: 6px; height: 6px;
+  background: var(--sage);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
 }
-
-/* ─── Nudge Types ─── */
-.nudge-section { padding: 100px 0; }
-.nudge-grid {
+.proof-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 48px;
 }
-.nudge-card {
+.proof-card {
   background: var(--bg-card);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  padding: 32px 24px;
-  text-align: center;
-  transition: border-color 0.3s;
+  padding: 28px 24px;
   box-shadow: 0 2px 8px var(--card-shadow);
 }
-.nudge-card:hover { border-color: rgba(43,37,32,0.12); }
-.nudge-icon {
-  width: 64px; height: 64px;
-  margin: 0 auto 20px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
+.proof-stars {
+  color: var(--amber-light);
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
 }
-.nudge-icon.breathe {
-  background: var(--sage-glow);
-  border: 1px solid rgba(75,111,68,0.15);
-}
-.nudge-icon.reflect {
-  background: rgba(210,174,177,0.12);
-  border: 1px solid rgba(210,174,177,0.25);
-}
-.nudge-icon.delay {
-  background: rgba(135,96,32,0.08);
-  border: 1px solid rgba(135,96,32,0.15);
-}
-.nudge-card h3 {
-  font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.3px;
-}
-.nudge-card p {
-  font-size: 14px;
-  color: var(--text-secondary);
+.proof-card blockquote {
+  font-size: 15px;
+  color: var(--text);
   line-height: 1.65;
+  margin-bottom: 16px;
+  font-style: normal;
 }
-.nudge-badge {
+.proof-author {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+.proof-badge {
   display: inline-flex;
-  padding: 4px 12px;
-  font-size: 12px;
+  padding: 2px 8px;
+  font-size: 11px;
   font-weight: 600;
-  border-radius: 20px;
-  margin-top: 16px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border: 1px solid rgba(155,86,54,0.15);
+  border-radius: 6px;
+  margin-left: 8px;
 }
-.nudge-badge.green { background: var(--sage-glow); color: var(--sage); border: 1px solid rgba(75,111,68,0.2); }
-.nudge-badge.violet { background: rgba(210,174,177,0.12); color: #8A5A5D; border: 1px solid rgba(210,174,177,0.3); }
-.nudge-badge.amber { background: rgba(135,96,32,0.08); color: var(--amber); border: 1px solid rgba(135,96,32,0.2); }
+
+/* ─── Mid-page CTA ─── */
+.mid-cta {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
 
 /* ─── Privacy ─── */
 .privacy-section {
   padding: 80px 0;
-  background: var(--bg-surface);
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
 }
 .privacy-grid {
   display: grid;
@@ -642,30 +626,20 @@ section { padding: 100px 0; }
 }
 .privacy-icon svg {
   width: 24px; height: 24px;
-  stroke: var(--sage);
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke: var(--sage); fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
 }
 .privacy-card h3 {
   font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 6px;
+  font-size: 16px; font-weight: 700; margin-bottom: 6px;
 }
 .privacy-card p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 13px; color: var(--text-secondary); line-height: 1.6;
 }
 
 /* ─── FAQ ─── */
 .faq-section { padding: 100px 0; }
-.faq-list {
-  max-width: 680px;
-  margin: 48px auto 0;
-}
+.faq-list { max-width: 680px; margin: 48px auto 0; }
 .faq-item { border-bottom: 1px solid var(--card-border); }
 .faq-question {
   width: 100%;
@@ -673,14 +647,11 @@ section { padding: 100px 0; }
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  background: none;
-  border: none;
+  background: none; border: none;
   font-family: var(--font-display);
-  font-size: 17px;
-  font-weight: 600;
+  font-size: 17px; font-weight: 600;
   color: var(--text);
-  cursor: pointer;
-  text-align: left;
+  cursor: pointer; text-align: left;
   letter-spacing: -0.2px;
 }
 .faq-question:hover { color: var(--accent); }
@@ -692,53 +663,36 @@ section { padding: 100px 0; }
 }
 .faq-item.open .faq-chevron { transform: rotate(180deg); }
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
+  max-height: 0; overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .faq-answer-inner {
   padding: 0 0 20px;
-  font-size: 15px;
-  color: var(--text-secondary);
-  line-height: 1.7;
+  font-size: 15px; color: var(--text-secondary); line-height: 1.7;
 }
 
 /* ─── Email Form ─── */
-.email-form {
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: left;
-}
-.email-form .form-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
+.email-form { max-width: 420px; margin: 0 auto; text-align: left; }
+.email-form .form-row { display: flex; gap: 8px; margin-bottom: 12px; }
 .email-form input[type="email"] {
   flex: 1;
   padding: 14px 16px;
   font-size: 16px;
-  font-family: var(--font);
+  font-family: var(--font-body);
   background: var(--bg-card);
   color: var(--text);
-  border: 1px solid var(--card-border-top);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-sm);
   outline: none;
   transition: border-color 0.2s;
 }
-.email-form input[type="email"]:focus {
-  border-color: var(--green);
-}
-.email-form input[type="email"]::placeholder {
-  color: var(--text-tertiary);
-}
+.email-form input[type="email"]:focus { border-color: var(--sage); }
+.email-form input[type="email"]::placeholder { color: var(--text-tertiary); }
 .email-form .form-submit {
   padding: 14px 24px;
-  font-size: 15px;
-  font-weight: 700;
-  font-family: var(--font);
-  background: linear-gradient(135deg, var(--green), var(--green-teal));
-  color: #000;
+  font-size: 15px; font-weight: 700;
+  font-family: var(--font-body);
+  background: var(--accent); color: #fff;
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -746,65 +700,30 @@ section { padding: 100px 0; }
   white-space: nowrap;
 }
 .email-form .form-submit:hover {
-  box-shadow: 0 4px 24px var(--green-glow-strong);
+  box-shadow: 0 4px 24px var(--accent-glow-strong);
   transform: scale(1.02);
 }
 .email-form .form-submit:active { transform: scale(0.96); }
-.email-form .form-submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
+.email-form .form-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 .email-form .consent-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-bottom: 12px;
+  display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;
 }
 .email-form .consent-row input[type="checkbox"] {
-  margin-top: 3px;
-  width: 18px;
-  height: 18px;
-  accent-color: var(--green);
-  flex-shrink: 0;
-  cursor: pointer;
+  margin-top: 3px; width: 18px; height: 18px;
+  accent-color: var(--accent); flex-shrink: 0; cursor: pointer;
 }
 .email-form .consent-row label {
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  cursor: pointer;
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.5; cursor: pointer;
 }
-.email-form .consent-row label a {
-  color: var(--green);
-  text-decoration: underline;
-}
-.email-form .form-message {
-  font-size: 14px;
-  margin-top: 8px;
-  text-align: center;
-}
-.email-form .form-message.success { color: var(--green); }
-.email-form .form-message.error { color: #FF6B6B; }
-.email-form .form-success {
-  text-align: center;
-  padding: 20px 0;
-}
-.email-form .form-success .checkmark {
-  font-size: 32px;
-  margin-bottom: 8px;
-}
-.email-form .form-success p {
-  font-size: 16px;
-  color: var(--green);
-  font-weight: 600;
-}
-.email-form .form-success .sub {
-  font-size: 14px;
-  color: var(--text-secondary);
-  font-weight: 400;
-  margin-top: 4px;
-}
+.email-form .consent-row label a { color: var(--accent); text-decoration: underline; }
+.email-form .form-message { font-size: 14px; margin-top: 8px; text-align: center; }
+.email-form .form-message.success { color: var(--sage); }
+.email-form .form-message.error { color: var(--destructive); }
+.email-form .form-success { text-align: center; padding: 20px 0; }
+.email-form .form-success .checkmark { font-size: 32px; margin-bottom: 8px; }
+.email-form .form-success p { font-size: 16px; color: var(--sage); font-weight: 600; }
+.email-form .form-success .sub { font-size: 14px; color: var(--text-secondary); font-weight: 400; margin-top: 4px; }
 
 /* ─── CTA ─── */
 .cta-section {
@@ -822,11 +741,7 @@ section { padding: 100px 0; }
   pointer-events: none;
 }
 .cta-section .container { position: relative; z-index: 1; }
-.cta-icon {
-  width: 80px; height: 80px;
-  margin: 0 auto 32px;
-  border-radius: 20px;
-}
+.cta-icon { width: 80px; height: 80px; margin: 0 auto 32px; border-radius: 20px; }
 
 /* ─── Footer ─── */
 footer {
@@ -838,43 +753,29 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
+.footer-left { display: flex; align-items: center; gap: 20px; }
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 700; font-size: 15px;
 }
-.footer-logo img {
-  width: 28px; height: 28px;
-  border-radius: 7px;
-}
+.footer-logo img { width: 28px; height: 28px; border-radius: 7px; }
 .footer-copy { font-size: 13px; color: var(--text-tertiary); }
 .footer-links { display: flex; gap: 24px; }
-.footer-links a {
-  font-size: 13px;
-  color: var(--text-tertiary);
-  transition: color 0.2s;
-}
+.footer-links a { font-size: 13px; color: var(--text-tertiary); transition: color 0.2s; }
 .footer-links a:hover { color: var(--text); }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .hero { padding: 120px 0 80px; }
-  .steps-grid, .nudge-grid { grid-template-columns: 1fr; }
+  .how-grid, .science-pair { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .privacy-grid { grid-template-columns: 1fr; }
-  .showcase-grid { grid-template-columns: 1fr; gap: 40px; }
-  .showcase-visual { order: -1; }
+  .proof-grid { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
   .footer-left { flex-direction: column; }
-  .nav-links a:not(.nav-cta) { display: none; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
   .phone-mockup { max-width: 260px; }
 }
 @media (max-width: 480px) {
@@ -896,51 +797,46 @@ footer {
       PauseMate
     </a>
     <div class="nav-links">
+      <a href="#science">The Science</a>
       <a href="#how">How It Works</a>
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
-      <a href="#notify" class="nav-cta">Get Notified</a>
+      <a href="#cta" class="nav-cta">Get Notified</a>
     </div>
+    <button class="nav-hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#science" onclick="document.getElementById('mobile-menu').classList.remove('open')">The Science</a>
+  <a href="#how" onclick="document.getElementById('mobile-menu').classList.remove('open')">How It Works</a>
+  <a href="#features" onclick="document.getElementById('mobile-menu').classList.remove('open')">Features</a>
+  <a href="#faq" onclick="document.getElementById('mobile-menu').classList.remove('open')">FAQ</a>
+  <a href="#cta" onclick="document.getElementById('mobile-menu').classList.remove('open')">Get Notified</a>
+</div>
 
 <!-- ─── Hero ─── -->
 <section class="hero">
   <div class="container">
-    <div class="hero-badge reveal">
-      <span class="dot"></span>
-      Beta Available on TestFlight
-    </div>
-    <h1 class="reveal">Take back your <span class="accent">attention</span></h1>
+    <h1 class="reveal">You check your phone <span class="accent">96 times</span> a day</h1>
     <p class="hero-sub reveal">
-      PauseMate creates a gentle pause before your most distracting apps open.
-      A moment to breathe, reflect, and choose intentionally.
+      How many of those were intentional? PauseMate creates a gentle, science-backed pause before your most distracting apps open.
     </p>
-    <p class="hero-tagline reveal">No blocking. No judgement. Just a moment to notice.</p>
-    <div class="hero-actions reveal" id="notify">
-      <div class="email-form">
-        <form id="email-capture" novalidate>
-          <div class="form-row">
-            <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email address">
-            <button type="submit" class="form-submit">Notify Me</button>
-          </div>
-          <div class="consent-row">
-            <input type="checkbox" id="consent" name="consent" required>
-            <label for="consent">I agree to receive launch updates. You can unsubscribe anytime. <a href="privacy.html">Privacy Policy</a></label>
-          </div>
-          <div class="form-message" role="status" aria-live="polite"></div>
-        </form>
-      </div>
+    <div class="reveal" style="margin-bottom: 40px;">
+      <span class="hero-stat">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        A pause before app-opening cut visits by up to 47% — CHI 2019
+      </span>
     </div>
-    <div class="reveal" style="margin-top: 4px; margin-bottom: 72px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-      <a href="https://testflight.apple.com/join/Qn377E3S" class="btn btn-primary" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
-        Try the Beta
+    <div class="reveal" style="margin-bottom: 72px;">
+      <a href="#how" class="btn btn-primary" style="font-size: 17px; padding: 16px 36px;">
+        See how it works
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
       </a>
-      <a href="#how" class="btn btn-secondary">See How It Works</a>
     </div>
 
-    <!-- Phone Mockup — Mk2 Warm Structure -->
+    <!-- Phone Mockup -->
     <div class="phone-mockup reveal">
       <div class="phone-screen">
         <div class="breathing-orb-wrap">
@@ -956,73 +852,80 @@ footer {
   </div>
 </section>
 
-<!-- ─── Three Nudge Types ─── -->
-<section class="nudge-section" id="how">
+<!-- ─── The Science ─── -->
+<section class="science-section" id="science">
   <div class="container">
     <div style="text-align: center;">
-      <div class="section-label reveal">Three Nudges</div>
-      <div class="section-title reveal">A moment between impulse and action</div>
+      <div class="section-label reveal">The Science</div>
+      <div class="section-title reveal">This isn't about willpower.<br>It's about how your brain works.</div>
       <p class="section-desc centered reveal">
-        When you reach for a distracting app, PauseMate interrupts the habit loop with
-        a gentle, mindful pause. You pick the type.
+        Decades of behavioural research show that a brief pause at the right moment
+        changes everything. PauseMate is built on that research.
       </p>
     </div>
-    <div class="nudge-grid">
-      <div class="nudge-card reveal">
-        <div class="nudge-icon breathe">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4B6F44" stroke-width="1.8" stroke-linecap="round"><path d="M12 22c-4.97 0-9-2.69-9-6v0c0-3.31 4.03-6 9-6s9 2.69 9 6v0c0 3.31-4.03 6-9 6z"/><path d="M12 10V2"/><path d="M8 6l4-4 4 4"/></svg>
-        </div>
-        <h3>Breathe</h3>
-        <p>A guided breathing exercise with visual and haptic feedback. Complete a cycle and the impulse often passes on its own.</p>
-        <span class="nudge-badge green">Level 1</span>
+    <div class="science-pair">
+      <div class="science-card reveal">
+        <div class="science-number">47%</div>
+        <h3>fewer app opens with escalating friction</h3>
+        <p>An interstitial pause screen before app opening reduced visits by 13% at low friction, 27% at medium, and 47% at high — mirroring PauseMate's escalating nudge design.</p>
+        <div class="science-source">Kim, Park, Lee, Ko &amp; Lee, 2019. ACM CHI Conference on Human Factors in Computing Systems. KAIST.</div>
       </div>
-      <div class="nudge-card reveal">
-        <div class="nudge-icon reflect">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8A5A5D" stroke-width="1.8" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        </div>
-        <h3>Reflect</h3>
-        <p>A short question that asks why you're reaching for this app right now. Build self-awareness without self-judgement.</p>
-        <span class="nudge-badge violet">Level 2</span>
+      <div class="science-card reveal">
+        <div class="science-number">71%</div>
+        <h3>followed through with a specific pause plan</h3>
+        <p>People who set a concrete "when X happens, I will do Y" plan completed their goal 71% of the time — compared to 32% who simply intended to do it.</p>
+        <div class="science-source">Gollwitzer &amp; Brandst&auml;tter, 1997. Journal of Personality and Social Psychology.</div>
       </div>
-      <div class="nudge-card reveal">
-        <div class="nudge-icon delay">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#876020" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>Wait</h3>
-        <p>A simple timed delay. 15 to 45 seconds of stillness. Enough time for the autopilot to release and your intention to surface.</p>
-        <span class="nudge-badge amber">Level 3</span>
-      </div>
+    </div>
+    <div class="science-footer reveal">
+      <a href="#faq">Built on peer-reviewed research from ACM CHI, NYU, and KAIST &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ─── How It Works ─── -->
-<section>
+<!-- ─── Willpower Callout ─── -->
+<section style="padding: 40px 0;">
+  <div class="container">
+    <div class="willpower-callout reveal">
+      <blockquote>The "willpower is a muscle" theory was tested across 23 labs and 2,141 participants. It failed. PauseMate doesn't rely on willpower — it builds a system.</blockquote>
+      <cite>Hagger et al., 2016. Perspectives on Psychological Science.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ─── How It Works (merged with nudge types) ─── -->
+<section class="how-section" id="how">
   <div class="container">
     <div style="text-align: center;">
       <div class="section-label reveal">How It Works</div>
-      <div class="section-title reveal">Escalating friction</div>
+      <div class="section-title reveal">Three nudges. Escalating friction.</div>
       <p class="section-desc centered reveal">
-        Nudges get progressively deeper with each re-open within an hour.
-        The more you reach, the more space you're given to notice.
+        When you reach for a distracting app, PauseMate interrupts the habit loop.
+        Nudges get deeper with each re-open within an hour.
       </p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card reveal">
-        <div class="step-num">1</div>
-        <h3>You reach for an app</h3>
-        <p>Open Instagram, TikTok, or any app you've chosen to pause on. PauseMate catches the moment before autopilot kicks in.</p>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-num step-breathe">1</div>
+        <h3>Breathe</h3>
+        <p>A guided breathing exercise with visual and haptic feedback. Complete one cycle — the impulse often passes on its own.</p>
+        <div class="nudge-science">A focused breathing exercise reduces emotional reactivity — Arch &amp; Craske, 2006</div>
       </div>
-      <div class="step-card reveal">
-        <div class="step-num">2</div>
-        <h3>A gentle nudge appears</h3>
-        <p>First time: a breathing exercise. Second time within an hour: a reflection prompt. Third: a timed delay. Each creates more space.</p>
+      <div class="how-card reveal">
+        <div class="how-num step-reflect">2</div>
+        <h3>Reflect</h3>
+        <p>A short question: why are you reaching for this app right now? Builds self-awareness without self-judgement.</p>
+        <div class="nudge-science">Reappraisal outperforms suppression for regulating emotions — Gross, 2002</div>
       </div>
-      <div class="step-card reveal">
-        <div class="step-num">3</div>
-        <h3>You decide what's next</h3>
-        <p>Complete the nudge and the app unlocks for 2 minutes. You're always in control. The choice was yours all along.</p>
+      <div class="how-card reveal">
+        <div class="how-num step-wait">3</div>
+        <h3>Wait</h3>
+        <p>A timed delay. 15 to 45 seconds of stillness. Enough time for the autopilot to release and your intention to surface.</p>
+        <div class="nudge-science">Escalating friction reduced app visits by up to 47% — Kim et al., CHI 2019</div>
       </div>
+    </div>
+    <div class="how-escalation reveal">
+      Complete any nudge and the app unlocks. You're always in control.
     </div>
   </div>
 </section>
@@ -1044,7 +947,7 @@ footer {
         </div>
         <div>
           <h3>Focus Sessions</h3>
-          <p>Schedule distraction-free blocks. Manual or recurring. A countdown banner keeps you aware without nagging.</p>
+          <p>When you want zero temptation, choose to fully block apps for 25, 50, or 90 minutes. Your boundary, on your terms.</p>
         </div>
       </div>
       <div class="feature-card reveal">
@@ -1067,24 +970,6 @@ footer {
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-        </div>
-        <div>
-          <h3>Smart Notifications</h3>
-          <p>A nudge notification arrives 1 second after you interact with the shield. Tap it to open PauseMate and complete your pause.</p>
-        </div>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        </div>
-        <div>
-          <h3>Scheduled Focus</h3>
-          <p>Set recurring focus blocks for work hours, study time, or wind-down. PauseMate activates automatically.</p>
-        </div>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
@@ -1096,46 +981,69 @@ footer {
   </div>
 </section>
 
-<!-- ─── App Identity Showcase ─── -->
-<section class="showcase-section">
+<!-- ─── Social Proof ─── -->
+<section class="proof-section">
   <div class="container">
-    <div class="showcase-grid reveal">
-      <div class="showcase-visual">
-        <div class="showcase-icon-wrap">
-          <img src="app-icon.svg" alt="PauseMate app icon" width="200" height="200">
+    <div class="proof-header reveal">
+      <div class="proof-counter">
+        <span class="dot"></span>
+        14 people testing the beta
+      </div>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card reveal">
+        <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I was checking Instagram 40+ times a day without realising. The breathing nudge breaks the trance — by the third day I was reaching for it half as much."</blockquote>
+        <div class="proof-author">
+          Sarah, 31 — Marketing Manager
+          <span class="proof-badge">Beta Tester</span>
         </div>
       </div>
-      <div class="showcase-text">
-        <div class="section-label">Our Approach</div>
-        <h3>Awareness,<br>not restriction</h3>
-        <p>
-          Most screen time apps treat you like a child who can't be trusted.
-          They block, they lock, they punish.
-        </p>
-        <p>
-          PauseMate creates a moment of awareness at the exact point where
-          habit takes over. That moment is enough.
-        </p>
-        <div class="value-list">
-          <div class="value-item">
-            <div class="value-check"><svg viewBox="0 0 14 14"><path d="M3 7l3 3 5-5"/></svg></div>
-            No apps are blocked, ever
-          </div>
-          <div class="value-item">
-            <div class="value-check"><svg viewBox="0 0 14 14"><path d="M3 7l3 3 5-5"/></svg></div>
-            All data stays on your device
-          </div>
-          <div class="value-item">
-            <div class="value-check"><svg viewBox="0 0 14 14"><path d="M3 7l3 3 5-5"/></svg></div>
-            You're always in control
-          </div>
-          <div class="value-item">
-            <div class="value-check"><svg viewBox="0 0 14 14"><path d="M3 7l3 3 5-5"/></svg></div>
-            No accounts, no cloud sync
-          </div>
+      <div class="proof-card reveal">
+        <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>"I've tried Screen Time, One Sec, Cold Turkey — they all felt punishing. PauseMate is the first one that doesn't make me feel like I'm fighting myself."</blockquote>
+        <div class="proof-author">
+          James, 28 — Software Engineer
+          <span class="proof-badge">Beta Tester</span>
+        </div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <blockquote>"The weekly audit was a wake-up call. Seeing that I bypassed the nudge 80% of the time on Sundays helped me understand my stress patterns."</blockquote>
+        <div class="proof-author">
+          Priya, 34 — UX Designer
+          <span class="proof-badge">Beta Tester</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─── Mid-page Email Capture ─── -->
+<section class="mid-cta" id="cta">
+  <div class="container">
+    <div class="section-title reveal" style="text-align: center;">Get notified at launch</div>
+    <p class="section-desc centered reveal" style="margin-bottom: 32px;">
+      PauseMate is coming soon to the App Store. Join the waitlist.
+    </p>
+    <div class="reveal">
+      <div class="email-form">
+        <form id="email-capture-main" novalidate>
+          <div class="form-row">
+            <input type="email" name="email" placeholder="you@example.com" required autocomplete="email" aria-label="Email address">
+            <button type="submit" class="form-submit">Notify Me</button>
+          </div>
+          <div class="consent-row">
+            <input type="checkbox" id="consent-main" name="consent" required>
+            <label for="consent-main">I agree to receive launch updates. You can unsubscribe anytime. <a href="privacy.html">Privacy Policy</a></label>
+          </div>
+          <div class="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+    <p class="reveal" style="text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-tertiary);">
+      Already sold? <a href="https://testflight.apple.com/join/Qn377E3S" target="_blank" rel="noopener" style="color: var(--accent); font-weight: 600;">Join the TestFlight beta &rarr;</a>
+    </p>
   </div>
 </section>
 
@@ -1145,9 +1053,6 @@ footer {
     <div style="text-align: center;">
       <div class="section-label reveal">Privacy First</div>
       <div class="section-title reveal">Your attention is yours. So is your data.</div>
-      <p class="section-desc centered reveal">
-        PauseMate is designed from the ground up to respect your privacy.
-      </p>
     </div>
     <div class="privacy-grid">
       <div class="privacy-card reveal">
@@ -1193,7 +1098,7 @@ footer {
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            Screen Time blocks apps after a time limit. PauseMate creates a mindful moment <em>before</em> you open them. We don't restrict you — we help you notice the habit and make a conscious choice.
+            Screen Time blocks apps after a time limit — and you tap "Ignore" every time. PauseMate takes a different approach: it creates a mindful moment <em>before</em> you open the app, so you notice the habit and make a conscious choice. When you do want hard blocking (study sessions, work hours), Focus Sessions give you that — but it's always your decision to turn it on.
           </div>
         </div>
       </div>
@@ -1204,7 +1109,18 @@ footer {
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            No. After completing a brief nudge, the app unlocks for 2 minutes. You can always choose to continue. The goal is awareness, not restriction.
+            By default, no. Nudges create a pause — once you complete one, the app unlocks and you choose what to do next. You're always in control. But when you <em>want</em> hard blocking — a study session, work hours, bedtime — you can opt into Focus Sessions, which fully block apps for a set period. The difference: you set the boundary, not us.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?'':a.scrollHeight+'px'">
+          Is this actually backed by research?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            Yes. The core mechanism — a friction screen before app opening — was tested in a 2019 field experiment at KAIST, published at ACM CHI (the top human-computer interaction conference). Escalating friction levels reduced app visits by up to 47%. The habit science draws on peer-reviewed research from NYU and UCL. We cite journal papers, not wellness blogs.
           </div>
         </div>
       </div>
@@ -1249,16 +1165,16 @@ footer {
 <section class="cta-section">
   <div class="container">
     <img src="app-icon.svg" alt="PauseMate" class="cta-icon reveal" width="80" height="80">
-    <div class="section-title reveal">Ready to reclaim<br>your attention?</div>
+    <div class="section-title reveal">The research is clear.<br>A pause changes everything.</div>
     <p class="section-desc centered reveal" style="margin-bottom: 36px;">
-      PauseMate is coming soon to the App Store. Get notified when it launches.
+      Join 14 beta testers already using PauseMate. Try the beta today or get notified when we launch.
     </p>
     <div class="reveal" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
       <a href="https://testflight.apple.com/join/Qn377E3S" class="btn btn-primary" style="font-size: 17px; padding: 16px 36px;" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
         Try the Beta
       </a>
-      <a href="#notify" class="btn btn-secondary" style="font-size: 17px; padding: 16px 36px;">
+      <a href="#cta" class="btn btn-secondary" style="font-size: 17px; padding: 16px 36px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
         Notify Me at Launch
       </a>
@@ -1311,68 +1227,72 @@ document.querySelectorAll('.reveal').forEach((el) => {
 </script>
 <script>
 (function() {
-  const form = document.getElementById('email-capture');
-  const msg = form.querySelector('.form-message');
+  function setupForm(form) {
+    if (!form) return;
+    const msg = form.querySelector('.form-message');
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    msg.textContent = '';
-    msg.className = 'form-message';
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      msg.textContent = '';
+      msg.className = 'form-message';
 
-    const email = form.email.value.trim();
-    const consent = form.consent.checked;
+      const email = form.email.value.trim();
+      const consent = form.consent.checked;
 
-    if (!email || !form.email.validity.valid) {
-      msg.textContent = 'Please enter a valid email address.';
-      msg.classList.add('error');
-      return;
-    }
-    if (!consent) {
-      msg.textContent = 'Please agree to receive launch updates.';
-      msg.classList.add('error');
-      return;
-    }
-
-    const btn = form.querySelector('.form-submit');
-    btn.disabled = true;
-    btn.textContent = 'Sending\u2026';
-
-    try {
-      const res = await fetch('https://api.buttondown.email/v1/subscribers', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Token 600572c5-6546-4e9f-9221-5baccafb2a74',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email_address: email,
-          type: 'regular',
-          tags: ['launch-notify'],
-          referrer_url: window.location.href
-        })
-      });
-
-      if (res.ok || res.status === 201) {
-        form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re on the list.</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
-      } else {
-        const data = await res.json().catch(() => ({}));
-        const detail = JSON.stringify(data).toLowerCase();
-        if (res.status === 409 || detail.includes('already')) {
-          form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re already on the list!</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
-        } else {
-          msg.textContent = 'Something went wrong. Please try again.';
-          msg.classList.add('error');
-          btn.disabled = false;
-          btn.textContent = 'Notify Me';
-        }
+      if (!email || !form.email.validity.valid) {
+        msg.textContent = 'Please enter a valid email address.';
+        msg.classList.add('error');
+        return;
       }
-    } catch (err) {
-      msg.textContent = 'Network error. Please try again.';
-      msg.classList.add('error');
-      btn.disabled = false;
-      btn.textContent = 'Notify Me';
-    }
-  });
+      if (!consent) {
+        msg.textContent = 'Please agree to receive launch updates.';
+        msg.classList.add('error');
+        return;
+      }
+
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending\u2026';
+
+      try {
+        const res = await fetch('https://api.buttondown.email/v1/subscribers', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Token 600572c5-6546-4e9f-9221-5baccafb2a74',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email_address: email,
+            type: 'regular',
+            tags: ['launch-notify'],
+            referrer_url: window.location.href
+          })
+        });
+
+        if (res.ok || res.status === 201) {
+          form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re on the list.</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
+        } else {
+          const data = await res.json().catch(() => ({}));
+          const detail = JSON.stringify(data).toLowerCase();
+          if (res.status === 409 || detail.includes('already')) {
+            form.innerHTML = '<div class="form-success"><div class="checkmark">\u2713</div><p>You\u2019re already on the list!</p><p class="sub">We\u2019ll email you on launch day.</p></div>';
+          } else {
+            msg.textContent = 'Something went wrong. Please try again.';
+            msg.classList.add('error');
+            btn.disabled = false;
+            btn.textContent = 'Notify Me';
+          }
+        }
+      } catch (err) {
+        msg.textContent = 'Network error. Please try again.';
+        msg.classList.add('error');
+        btn.disabled = false;
+        btn.textContent = 'Notify Me';
+      }
+    });
+  }
+
+  setupForm(document.getElementById('email-capture-main'));
 })();
 </script>
 </body>
