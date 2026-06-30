@@ -1,0 +1,119 @@
+/* PauseMate guides — shared content styles (brand-aligned subset of index.html) */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #F5F0EB;
+  --bg-surface: #EDE8E1;
+  --bg-card: #FFFFFF;
+  --text: #2B2520;
+  --text-secondary: #6B5F55;
+  --text-tertiary: #8A7D73;
+  --accent: #9B5636;
+  --accent-light: #C27B5A;
+  --sage: #4B6F44;
+  --card-border: rgba(43,37,32,0.08);
+  --card-shadow: rgba(43,37,32,0.06);
+  --font-display: 'Literata', Georgia, 'Times New Roman', serif;
+  --font-body: 'General Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Header */
+.site-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1080px; margin: 0 auto; padding: 20px 24px;
+}
+.site-nav .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; color: var(--text); }
+.site-nav .brand img { width: 28px; height: 28px; }
+.site-nav .nav-links { display: flex; gap: 22px; align-items: center; }
+.site-nav .nav-links a { color: var(--text-secondary); font-weight: 500; font-size: 15px; }
+.nav-cta {
+  background: var(--accent); color: #fff !important; padding: 9px 18px;
+  border-radius: 10px; font-weight: 600; font-size: 14px;
+}
+.nav-cta:hover { background: var(--accent-light); text-decoration: none; }
+
+/* Article */
+article { padding: 24px 0 64px; }
+.breadcrumb { font-size: 13px; color: var(--text-tertiary); margin-bottom: 20px; }
+.breadcrumb a { color: var(--text-tertiary); }
+.eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+article h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(30px, 5vw, 44px); line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.lede {
+  font-size: 19px; color: var(--text); line-height: 1.6;
+  border-left: 3px solid var(--accent); padding-left: 18px; margin: 24px 0 36px;
+}
+.lede strong { font-weight: 600; }
+article h2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(22px, 3.5vw, 28px); line-height: 1.25; margin: 44px 0 14px;
+}
+article h3 { font-size: 19px; font-weight: 600; margin: 28px 0 10px; }
+article p { color: var(--text-secondary); margin-bottom: 16px; font-size: 17px; }
+article ul, article ol { color: var(--text-secondary); margin: 0 0 18px 22px; font-size: 17px; }
+article li { margin-bottom: 8px; }
+article strong { color: var(--text); }
+.meta-row { font-size: 14px; color: var(--text-tertiary); margin-bottom: 8px; }
+
+/* Comparison table */
+.table-wrap { overflow-x: auto; margin: 28px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--bg-card); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px var(--card-shadow); }
+th, td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--card-border); }
+th { background: var(--bg-surface); font-weight: 600; color: var(--text); font-size: 14px; }
+td { color: var(--text-secondary); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+td.highlight, th.highlight { background: rgba(155,86,54,0.05); }
+
+/* Callout / CTA */
+.callout {
+  background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 16px;
+  padding: 28px; margin: 40px 0; box-shadow: 0 1px 3px var(--card-shadow);
+}
+.callout h3 { margin-top: 0; font-family: var(--font-display); font-size: 22px; }
+.callout p { margin-bottom: 18px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #fff !important; font-weight: 600;
+  padding: 14px 28px; border-radius: 12px; font-size: 16px;
+}
+.btn-primary:hover { background: var(--accent-light); text-decoration: none; }
+.disclaimer { font-size: 13px; color: var(--text-tertiary); font-style: italic; margin-top: 24px; }
+
+/* FAQ */
+.faq-block { margin-top: 48px; }
+.faq-block details {
+  background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 12px;
+  padding: 18px 20px; margin-bottom: 12px;
+}
+.faq-block summary { font-weight: 600; cursor: pointer; color: var(--text); list-style: none; }
+.faq-block summary::-webkit-details-marker { display: none; }
+.faq-block details p { margin: 12px 0 0; }
+
+/* Guides index */
+.guide-card {
+  display: block; background: var(--bg-card); border: 1px solid var(--card-border);
+  border-radius: 16px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px var(--card-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.guide-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--card-shadow); text-decoration: none; }
+.guide-card h2 { font-size: 21px; margin: 0 0 8px; color: var(--text); }
+.guide-card p { margin: 0; }
+
+/* Footer */
+footer { border-top: 1px solid var(--card-border); padding: 32px 0; margin-top: 40px; }
+.footer-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 14px; color: var(--text-tertiary); }
+.footer-inner a { color: var(--text-secondary); margin-left: 18px; }
+@media (max-width: 600px) { .site-nav .nav-links a:not(.nav-cta) { display: none; } .footer-inner a:first-child { margin-left: 0; } }
