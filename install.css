@@ -1,0 +1,66 @@
+/* PauseMate Install Block — reusable conversion unit (homepage + all answer pages).
+   Self-contained, pm- prefixed so it is safe to drop into any page regardless of
+   that page's own stylesheet. Palette mirrors site tokens (cream / clay accent). */
+
+.pm-install {
+  --pm-bg: #F5F0E8;
+  --pm-surface: #FFFFFF;
+  --pm-ink: #2A2622;
+  --pm-muted: #6B6259;
+  --pm-accent: #C27B5A;
+  --pm-border: rgba(42, 38, 34, 0.10);
+  background: var(--pm-bg);
+  border-radius: 24px;
+  padding: 40px 32px;
+  margin: 56px auto;
+  max-width: 760px;
+}
+.pm-install-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.pm-install-copy { flex: 1 1 320px; min-width: 260px; }
+.pm-install-copy h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  color: var(--pm-ink);
+  margin: 0 0 10px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.pm-install-copy p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--pm-muted);
+  margin: 0 0 22px;
+}
+.pm-install-btn { display: inline-block; line-height: 0; }
+.pm-install-btn img { height: 54px; border-radius: 12px; }
+
+/* QR bridge — only meaningful on a non-iPhone screen, so hide it on narrow viewports. */
+.pm-install-qr {
+  flex: 0 0 auto;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  width: 188px;
+}
+.pm-install-qr img { width: 132px; height: 132px; display: block; }
+.pm-install-qr span {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--pm-muted);
+}
+@media (min-width: 720px) {
+  .pm-install-qr { display: flex; }
+}
